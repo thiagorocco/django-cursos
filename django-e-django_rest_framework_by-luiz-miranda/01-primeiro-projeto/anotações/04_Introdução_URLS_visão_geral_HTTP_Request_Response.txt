@@ -1,0 +1,22 @@
+# 1. O arquivo urls.py
+    Contém informações dos caminhos da url digitada no navegador
+    Dentro dele há uma estrutura chamada urlpatterns e seus elementos path(caminhos)
+    Os paths sempre terão obrigatoriamente um caminho e uma função com request como parâmetro
+
+    def myview(request):
+        return HttpResponse('Olá, mundo')
+
+    path('/sobre',myview)
+
+    Se inspecionar a página conseguirá ver o status de resposta da página.
+
+    Mais comuns:
+    
+    200 Requisição bem sucedida
+    404 Página não encontrada
+
+    Os headers mostrados na inspecão na página são conteúdos que o usuário não vê. Mas 
+    que os navegadores trocam entre si
+
+    # O uso de funções com views no arquivo URLS não é indicado. Apenas para testes rápidos.
+    O correto é criar apps

@@ -1,0 +1,7 @@
+*** Corrigindo a altura dos cards de recipes e adicionando a imagem ***
+
+# 1. Em recipes/static/recipes/css/styles.css adicione altura ao elemento
+.recipe-list-item como "fit-content"
+
+# 2. Em recipes/templates/recipes/partials/recipe.html insira imagem 
+dinâmica alterando o conteúdo de src para {{ recipe.cover.url }}

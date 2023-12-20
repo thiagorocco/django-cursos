@@ -1,0 +1,9 @@
+# 1. Separe o conteúdo da div search-container em um arquivo separado
+chamado search.html em partial
+
+# 2. Em home.html insira um include para search
+
+# 3. Em home.html insira a tag main com nome de classe = "main-content-container"
+e dentro dela insira uma div com classe = "main-content main-content-list-container"
+
+# 4. Em head.html insira formatações para as classes: .main-content e .main-content-list

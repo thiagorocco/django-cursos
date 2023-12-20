@@ -1,0 +1,5 @@
+# 1. Crie um novo template chamado recipe-view.html em templates/recipes/pages
+
+# 2. Copie e cole o código da home.html
+
+# 3. Altere o nome o caminho na view recipe

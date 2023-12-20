@@ -1,0 +1,10 @@
+# 1. RUN AND DEBUG(icone do inseto)
+    Vá em create a launch.json file.
+    Vá em Python e depois em Django e certifique-se que o arquivo já está criado
+    No nosso caso já está.
+
+    CTRL + J ou CTRL + ' funciona como atalho para abrir o terminal
+
+    Agora ao executar o comando F5 ou CTRl+F5 não é necessário digitar a linha de comando
+    python3 manage.py runserver
+

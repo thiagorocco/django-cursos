@@ -1,0 +1,10 @@
+# 1. Vamos alterar a nossa view, a função recipe vai retornar também o seguinte
+código 'is_detail_page': True,
+
+# 2. Em partials/recipe.html insira um if do django para não exibir
+o botão ver mais quando estivermos dentro da receita. Além disso esse 
+if fará a exibição da descrição da receita quando estivermos dentro dela
+
+# 3. Configure um padding maior para a descrição da receita formatando a tag
+.preparation.steps.
+

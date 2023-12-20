@@ -1,0 +1,9 @@
+Deixar a tag title dinâmica
+
+# 1. Retire o include head de base.html e acrescente a tag head
+e dentro dela faça o include do partials/head.html
+Ainda dentro de head insira a tag title e dentro dela insira block title e 
+endblock title
+
+# 2. Em home.html insira o block title e o endblock title. E Faça o mesmo
+na página recipe-view

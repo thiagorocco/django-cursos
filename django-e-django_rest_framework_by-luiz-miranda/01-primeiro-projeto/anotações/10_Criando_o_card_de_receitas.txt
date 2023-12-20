@@ -1,0 +1,30 @@
+# 1. Em home.html acrescente a div com classe = "recipe-list-item" mais uma classe recipe,
+ficando o nome completo da classe = ""recipe recipe-list-item". 
+E dentro dela acrescente a div com classe = "recipe-cover", e dentro dessa
+acrescente a tag img. Dentro da div com classe="recipe recipe-list-item" 
+insira um h1 escrito Oi dentro apenas para teste.
+
+# 2. Em head.html faça as formatações das classes:
+    .recipe, . recipe-list-item e .recipe-list-item:hover
+
+# 3. Apague o h1 de teste.
+
+# 4. Adicione as divs recipe-title-container, recipe-author, recipe-author-item e recipe-content
+dentro da div "recipe recipe-list-item"
+Adicione as devidas formtações no css em head.html.
+
+# 5. Logo abaixo da div classe="recipe-content" adicione as divs:
+    "recipe-meta-container", recipe-meta recipe-servings" e o recipe-footer.
+    Essas divs se referem a informações do preparo, porções e o link "ver mais"
+
+# 6. Formate essas novas divs no css
+
+# 7. Separe o conteúdo da receita(recipe) em um arquivo separado que
+deverá ficar dentro da pasta "partials". Crie um footer para a sua página 
+em um arquivo separado também dentro de partials.
+
+# 8. Agora na home da sua página inclua recipe e o novo footer com a instrução include do django
+
+# 9. Formate o novo footer
+
+

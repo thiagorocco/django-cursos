@@ -1,0 +1,15 @@
+# 1. Mude a cor de fundo do body para --color-gray-1
+
+# 2. No arquivo home.html recorte a tag header e insira em um novo arquivo
+chamado header.html que ficará dentro do diretório partials.
+
+# 3. Em home.html dentro da tag body, insira um include para chamar o header:
+        {% include 'recipes/partials/header.html' %}
+
+# 4. Agora home.html logo após o include do header insira um form com input e submit
+
+# 5. Formate no css para deixar o search-button e o search-input invisíveis
+
+# 6. Formate o search-form
+
+# 7. Arredonde um pouco as bordas do search-from com border-radius

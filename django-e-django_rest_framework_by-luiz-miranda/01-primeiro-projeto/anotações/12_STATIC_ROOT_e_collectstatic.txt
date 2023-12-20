@@ -1,0 +1,11 @@
+Configurar o STATIC_ROOT e executar o comando collecstatic são 
+assuntos um pouco mais avançados, porém é interessante conhecer porque
+no ambiente de produção faz toda a diferença em problemas de colisões de nome
+
+# 1. Configure o STATIC_ROOT em settings.py logo após STATICFILES_DIRS.
+    STATIC_ROOT = BASE_DIR / 'static'
+# 2. Execute o comando python3 manage.py collecstatic
+# 3. Observe que será criada uma pasta chamada "static" na raiz do projeto, 
+a qual conterá seus arquivos estáticos já criados.
+    Observe que se não tivéssemos configurado os namespaces poderíamos ter
+    nesse  momento uma colisão de nomes desses arquivos estáticos

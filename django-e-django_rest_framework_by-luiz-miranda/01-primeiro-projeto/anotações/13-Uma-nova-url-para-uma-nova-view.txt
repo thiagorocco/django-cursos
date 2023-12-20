@@ -1,0 +1,3 @@
+# 1. Em views adicione uma nova def que retorne a url home, igual ao da home
+
+# 2. Em urls agora altere a forma de importar as views. Em vez de importar

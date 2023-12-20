@@ -1,0 +1,22 @@
+# 1. Crie a página mestre que contém tudo que você quer e defina blocos
+# 2. Agora toda a página que extender(herdar) essa página mestre pode 
+definir o conteúdo desse bloco
+
+Siga os seguintes passos:
+1. Em base_templates/global apague o arquivo home.html e crie o arquivo 
+base.html com as instruçẽos de blocos
+
+2. Em recipes/templates/recipes/pages/home.html altera o código para 
+herdar(extends) o global/base.html
+
+O que aconteceu na prática???
+1. Observe que em base.html contém includes de header, search e footer. Entre
+search e footer dentro da tag "main" há a instrução:
+     {% block content %}{% endblock content %}
+Isso permite que o conteúdo poderá ser definido dentro da página que herdar 
+a base.html. Porém na página "filha" também deve conter a instrução 
+{% block content %}
+    /*Conteúdo*/
+{% endblock content %}
+
+3. Faça o processo também na página recipe-view

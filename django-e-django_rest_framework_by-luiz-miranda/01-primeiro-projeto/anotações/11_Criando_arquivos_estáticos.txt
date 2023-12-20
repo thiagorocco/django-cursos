@@ -1,0 +1,23 @@
+# Arquivos estáticos são arquivos que quase não sofrem alterações, pois
+não são dinâmicos e que o navegador é capaz de armazená-los no cache para
+carregarem mais rapidamente toda vez que o usuário solicitar o acesso.
+
+# 1. O framework Django já está preparado para tratar os arquivos estáticos dentro
+do seu app. Portanto crie uma pasta chamada "static" na pasta do seu app.
+
+# 2. Vamos transferir o conteúdo do css em head para um arquivo css dentro de static.
+Lembre-se de seguir boas práticas e criar uma pasta recipes antes de adicionar o arquivo, pois
+assim seguiremos a boa prática de namespace
+
+# 3. Agora em head.html faça a inclusão dessa folha de estilo com os comandos django:
+    {% load static %} -> Insira antes da tag <!doctype html>
+
+# 4. Em settings.py você pode acrescenter novos caminhos para arquivos estáticos.
+Por padrão eles devem ficar dentro da pasta static, mas é possível adicionar 
+novos caminhos.
+    1. Crie uma pasta chamada base_static/global/css/global-style.css na raiz do projeto
+    2. Em settings.py vá até a linha que contenha a STATIC_URL e logo abaixo 
+    acrescente "STATICFILES_DIRS = [BASE_DIR / 'base_static']
+    3. No head.html adicione essa folha de estilo
+    4. Acrescente uma formatação red ao backgroundo do body para testar.
+

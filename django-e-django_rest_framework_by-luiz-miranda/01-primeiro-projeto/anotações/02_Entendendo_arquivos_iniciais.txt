@@ -1,0 +1,24 @@
+# 1. Procure nomear pastas, arquivos em inglês. Fica mais profissional
+
+# 2. mypy é uma pasta de plugin. Não se preocupe
+
+# 3. venv é a pasta do ambiente virtual
+
+# 4. .gitignore é o arquivo que ignora alguns conteúdos no commit e push
+
+# 5. db.sqlite3 é a base de dados inicial do django em sqlite
+
+# 6. manage.py é o arquivo mais importante do projeto. É o que o django-admin faz
+A diferença entre eles é que o manage.py tem acesso ao arquivo settings.py eles
+configura a variável de ambiente DJANGO_SETTINGS_MODULE.
+Normalmente o django-admin será usado para iniciar o projeto e o restante ficará a cargo do manage.py
+
+# 7. Na pasta do projeto:
+    -> __pycache__ é o cache do python.
+    -> __init__.py Inicia vazio e indica que a pasta projeto é um pacote do python.
+    Inicializa outros pacotes também quando for o caso.
+    -> asgi e wsgi são arquivos usados para fazer a ligação entre o django e um servidor web
+    
+    -> settings.py (Esse arquivo será bastante usado tanto no inicio como durante o desenvolvimento)
+    -> urls.py É a porta de entrada da aplicação. Vai pegar o endereço que a pessoa digitou no
+    browser e linkar com a aplicação

@@ -1,0 +1,33 @@
+# 1. Crie um ambiente virtual:
+    python3 -m venv venv
+
+# 2. Ative o ambiente virtual:
+    . venv/bin/activate ou source venv/bin/activate
+
+# 3. Instale o django:
+    pip install django
+
+# 4. Para atualizar todas as ferramentas:
+
+    python -m pip install pip setuptools wheel --upgrade
+
+# 5. Verifique se o django foi instalado corretamente:
+    django-admin --version
+
+# 6. Configure o git ignore e salve no seu projeto
+
+--> DICA: Cuidado com as bases de dados que você sobe para o github, pois muitas vezes
+serão públicas, a não ser que você configure o repositório como privado
+
+# 7. Faça um novo commit
+
+# 8. Para fazer o primeiro hello world
+    django-admin startproject nome-projeto . O ponto no final serve para criar o manage.py dentro do 
+    diretório atual e a pasta projeto. Caso contrário o django criaria uma pasta projeto
+    com o manage.py dentro dela e também outra pasta dentro dela chamada projeto com os 
+    arquivos de configuração.
+
+    Você pode digitar também django-admin --help para ver todas as opções
+
+# 9. Rode o servidor:
+    Agora digite no terminal python3 manage.py runserver

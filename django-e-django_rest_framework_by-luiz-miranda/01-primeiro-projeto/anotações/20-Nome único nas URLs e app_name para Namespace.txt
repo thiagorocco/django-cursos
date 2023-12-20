@@ -1,0 +1,14 @@
+O objetivo é dar um nome único às Urls do projeto 
+
+# 1. Em recipes/urls, em urls_patterns, no primeiro elemento(home), adicione
+o parâmetro name="home" e no segundo elemento insira também esse parâmetro
+name="recipe"
+
+# 2. recipes/templates/recipes/partials/header.html, na classe main-logo
+substitua o conteúdo do href de "/" para "recipes-home"
+
+# 3. Em recipes/templates/recipes/partials/recipe.html coloque a tag img dentro
+de um <a href="{% url 'recipes-recipe' recipe.id %}">
+
+# 4. Em factory.py insira no primeiro elemento do array de retorno o seguinte
+valor : 'id': fake.random_number(digits=2, fix_len=True),

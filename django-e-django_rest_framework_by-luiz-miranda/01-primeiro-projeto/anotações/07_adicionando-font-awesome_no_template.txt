@@ -1,0 +1,29 @@
+# 1. Remova os arquivos contato e sobre dos templates, pois não serão usados.
+
+# 2. Elimine as rotas deles em recipes/urls.py e também as funções em recipes/views.py
+
+# 3. Adicione o cdn do font-awesome.min.css 5.15.4 à sua página home ligeiramente após
+a tag meta name. Nesse caso copie e cole ali.
+
+# 4. Faça o mesmo com o cdn brands.min.css e cole na linha seguinte.
+Por fim faça também com solid.min.css
+
+Importar esses códigos permitirá que você use ícones em seu site
+
+# 5. Faça alguma inclusões de css na própria página home com a tag style.
+Zere o padding e margins como boa recomendação e configure o tamanho da fonte(medida rem)
+
+# 6. Agora separe os arquivos html e pages e partials. Dentro do diretório templates/recipes,
+crie duas pastas: pages e partials.
+Em pages insira o código de home a partir da tag body e em partials o que estiver acima e nomeie como head.html
+
+# 7. Agora em home.html, na primeira linha antes de iniciar o body insira a instrução django:
+{% include 'recipes/partials/head.html' %}
+
+# 8. Estilize o css do seu cabeçalho no arquivo head.html
+
+# 9. Insira as variáveis do css conforme commit do curso em root:
+
+# 10. Adicione a fonte do Google Robot Slab no seu arquivo html e configure
+para que os cabeçalhos de h1 a h6 tenham a font-family o valor da variável font-headings
+
