@@ -1,0 +1,12 @@
+1. Instale o poetry: pip install poetry
+
+2. Entre no diretório do projeto e digite: poetry init
+
+3. Confirme as próximas etapas e será criado o arquivo pyproject.toml
+
+4. Em seguida use o comando: poetry install
+    Ele criará um ambiente virtual parecido com o python -m venv venv
+
+5. Instale o django: poetry add django
+
+6. Acesse o ambiente virtual do poetry: poetry shell
