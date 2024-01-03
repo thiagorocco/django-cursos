@@ -10,3 +10,5 @@
 5. Instale o django: poetry add django
 
 6. Acesse o ambiente virtual do poetry: poetry shell
+
+7. Inicie o projeto django: django-admin startproject nome-projeto .
