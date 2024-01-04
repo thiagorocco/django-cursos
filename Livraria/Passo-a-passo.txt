@@ -24,4 +24,4 @@
 
 10. Crie um super usuário: python manage.py createsuperuser
 
-11. Crie um app: 
+11. Crie um app: python manage.py startapp core. E em setting adicione o app core
