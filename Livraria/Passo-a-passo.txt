@@ -31,3 +31,11 @@
 
     def teste(request):
         return HttpResponse('Olá, mundo do Django')
+
+13. Em livraria/urls.py adicione a rota para a view teste:
+    Importe a view: 
+        from core import views
+    E no array urlpatterns inclua a rota para teste:
+        .
+        .
+        path('teste/',views.teste)
