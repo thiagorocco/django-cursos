@@ -21,4 +21,7 @@
 
 9. Execute o comando: python manage.py migrate
     Isso criará o banco de dados e a página de admin já estará disponível em localhost:8000/admin
-    
+
+10. Crie um super usuário: python manage.py createsuperuser
+
+11. Crie um app: 
