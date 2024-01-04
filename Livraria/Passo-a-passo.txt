@@ -12,3 +12,13 @@
 6. Acesse o ambiente virtual do poetry: poetry shell
 
 7. Inicie o projeto django: django-admin startproject nome-projeto .
+
+8. Em settings.py recomenda-se ler um pouco a documentação:
+    https://docs.djangoproject.com/en/5.0/topics/settings/
+    https://docs.djangoproject.com/en/5.0/ref/settings/
+
+    É recomendado trocar a SECRET_KEY
+
+9. Execute o comando: python manage.py migrate
+    Isso criará o banco de dados e a página de admin já estará disponível em localhost:8000/admin
+    
