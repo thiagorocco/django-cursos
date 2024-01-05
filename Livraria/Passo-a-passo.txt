@@ -39,3 +39,16 @@
         .
         .
         path('teste/',views.teste)
+14. Crie uma nova view teste2 e adicione uma rota para essa também.
+
+15. Agora vá até core/models e crie as classes Categoria e Editora:
+    class Categoria(models.Model):
+        descricao = models.CharField(max_length=255)
+
+    class Editora(models.Model):
+        nome = models.CharField(max_length=255)
+        site = models.URLField()
+
+16. Execute o comando: python manage.py makemigrations
+17. Em seguida execute o comando: python manage.py migrate
+
