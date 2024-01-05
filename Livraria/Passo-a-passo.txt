@@ -41,7 +41,7 @@
         path('teste/',views.teste)
 14. Crie uma nova view teste2 e adicione uma rota para essa também.
 
-15. Agora vá até core/models e crie as classes Categoria e Editora:
+15. Agora vá até core/models e crie as classes Categoria, Editora e Autor:
 
     class Categoria(models.Model):
         descricao = models.CharField(max_length=255)
@@ -55,15 +55,27 @@
         
         def __str__(self):
             return self.nome
+    
+
 
 16. Execute o comando: python manage.py makemigrations
 17. Em seguida execute o comando: python manage.py migrate
 
 18. Em admin.py registre esses modelos de dados para ficarem visíveis em localhost/admin:
 
-    from core.models import Categoria, Editora
+    from core.models import Autor, Categoria, Editora
 
+    admin.site.register(Autor)
     admin.site.register(Categoria)
     admin.site.register(Editora)
 
+19. Para a apresentação do nome plural correto(ou como você quiser) na tela do admin,
+    use uma meta classe dentro da classe model que você deseja alterar:
+
+        class Autor(models.Model):
+            class Meta:
+                verbose_name_plural = "autores"
+            .
+            .
+            .    
 
