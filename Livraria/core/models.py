@@ -24,12 +24,13 @@ class Autor(models.Model):
         return self.nome
 
 class Livro(models.Model):
+    
     titulo = models.CharField(max_length=255)
     ISBN = models.CharField(max_length=32)
-    quantidade = models.IntegerField()
-    preco = models.FloatField()
-    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros")
-    editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros")
-    
+    quantidade = models.IntegerField(default=1)
+    preco = models.FloatField(default=1.0)
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros", default=1)
+    editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros",default=1)
+
     def __str__(self):
-        return self
+        return "%s (%s)" %(self.titulo, self.editora)
