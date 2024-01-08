@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Categoria(models.Model):
@@ -35,3 +36,6 @@ class Livro(models.Model):
     
     def __str__(self):
         return "%s (%s)" %(self.titulo, self.editora)
+
+class Compra(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.PROTEC, related_name="compras")
