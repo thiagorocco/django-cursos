@@ -60,7 +60,10 @@ class Livro(models.Model):
     preco = models.FloatField(default=1.0)
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros", default=1)
     editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros",default=1)
-
+    
+    #Atributo muitos para muitos
+    autores = models.ManyToManyField(Autor, related_name="livros")
+    
     def __str__(self):
         return "%s (%s)" %(self.titulo, self.editora)
 
@@ -72,11 +75,12 @@ class Livro(models.Model):
 
 18. Em admin.py registre esses modelos de dados para ficarem visíveis em localhost/admin:
 
-    from core.models import Autor, Categoria, Editora
+    from core.models import Autor, Categoria, Editora, Livro
 
     admin.site.register(Autor)
     admin.site.register(Categoria)
     admin.site.register(Editora)
+    admin.site.register(Livro)
 
 19. Para a apresentação do nome plural correto(ou como você quiser) na tela do admin,
     use uma meta classe dentro da classe model que você deseja alterar:

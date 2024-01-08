@@ -31,6 +31,7 @@ class Livro(models.Model):
     preco = models.FloatField(default=1.0)
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros", default=1)
     editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros",default=1)
-
+    autores = models.ManyToManyField(Autor, related_name="livros")
+    
     def __str__(self):
         return "%s (%s)" %(self.titulo, self.editora)
