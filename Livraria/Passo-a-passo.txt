@@ -67,6 +67,17 @@ class Livro(models.Model):
     def __str__(self):
         return "%s (%s)" %(self.titulo, self.editora)
 
+class Compra(models.Model):
+    
+    class StatusCompra(models.IntegerChoices):
+        CARRINHO = 1, 'Carrinho'
+        REALIZADO = 2, 'Realizado'
+        PAGO = 3, 'Pago'
+        ENTREGUE = 4, 'Entregue'
+        
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT, related_name="compras") 
+    status = models.IntegerField(choices=StatusCompra.choices, default=StatusCompra.CARRINHO)  
+
     
 
 
@@ -75,12 +86,13 @@ class Livro(models.Model):
 
 18. Em admin.py registre esses modelos de dados para ficarem visíveis em localhost/admin:
 
-    from core.models import Autor, Categoria, Editora, Livro
+    from core.models import Autor, Categoria, Compra, Editora, Livro
 
     admin.site.register(Autor)
     admin.site.register(Categoria)
     admin.site.register(Editora)
     admin.site.register(Livro)
+    admin.site.register(Compra)
 
 19. Para a apresentação do nome plural correto(ou como você quiser) na tela do admin,
     use uma meta classe dentro da classe model que você deseja alterar:
