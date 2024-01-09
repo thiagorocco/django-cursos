@@ -38,4 +38,12 @@ class Livro(models.Model):
         return "%s (%s)" %(self.titulo, self.editora)
 
 class Compra(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.PROTEC, related_name="compras")
+    
+    class StatusCompra(models.IntegerChoices):
+        CARRINHO = 1, 'Carrinho'
+        REALIZADO = 2, 'Realizado'
+        PAGO = 3, 'Pago'
+        ENTREGUE = 4, 'Entregue'
+        
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT, related_name="compras") 
+    status = models.IntegerField   
