@@ -160,7 +160,11 @@ o código deverá ficar assim:
     Teste a url /categorias. Deverá retornar os registros no banco de dados no formato json
 
 21. Uso do postman para testes de API
-
+    GET: Buscar as informações
+    POST: Criar uma nova informação
+    PUT: Alterar todos os atributos daquele elemento
+    PATCH: Fazer alteração pontual num atributo específico, numa linha específica
+    DELETE: Apagar
 
 
 
