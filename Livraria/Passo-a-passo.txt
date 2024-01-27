@@ -160,11 +160,20 @@ o código deverá ficar assim:
     Teste a url /categorias. Deverá retornar os registros no banco de dados no formato json
 
 21. Uso do postman para testes de API
-    GET: Buscar as informações
-    POST: Criar uma nova informação
-    PUT: Alterar todos os atributos daquele elemento
-    PATCH: Fazer alteração pontual num atributo específico, numa linha específica
-    DELETE: Apagar
+    
+    Métodos HTTP:
+        GET: Buscar as informações
+        POST: Criar uma nova informação
+        PUT: Alterar todos os atributos daquele elemento
+        PATCH: Fazer alteração pontual num atributo específico, numa linha específica
+        DELETE: Apagar
+    
+    Para usar o método POST é necessário alguns ajustes  no código. Vá em views.py
+        Importe: 
+            from django.utils.decorators import method_decorator
+            from django.views.decorators.csrf import csrf_exempt
 
+        E logo antes da declaração da classe CategoriaView(View) insira:
+            @method_decorator(csrf_exempt)
 
 
