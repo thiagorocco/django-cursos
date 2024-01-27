@@ -159,6 +159,7 @@ o código deverá ficar assim:
     
     Teste a url /categorias. Deverá retornar os registros no banco de dados no formato json
 
+21. Uso do postman para testes de API
 
 
 
