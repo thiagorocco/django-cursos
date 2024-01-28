@@ -175,5 +175,28 @@ o código deverá ficar assim:
 
         E logo antes da declaração da classe CategoriaView(View) insira:
             @method_decorator(csrf_exempt)
+        
+        Agora dentro da classe CategoriaView insira o método post:
 
+                def post(self, request):
+                    json_data = json.loads(request.body) # o dado que está vindo
+                    nova_categoria = Categoria.objects.create(**json_data)
+                    data = {"id":nova_categoria.id, "descricao":nova_categoria.descricao}
+                    return JsonResponse(data)
+        
+        O método get da classe CategoriaView sofrerá uma alteração e ficará dessa forma:
+        def get(self, request, id=None):
+            if id:
+                qs = Categoria.objects.get(id=id)
+                data = {}
+                data['id'] = qs.id
+                data['descricao'] = qs.descricao
+                return JsonResponse(data)
+            
+            data = list(Categoria.objects.values())
+            formated_data = json.dumps(data, ensure_ascii=False)
+            return HttpResponse(formated_data, content_type="application/json")
+        
+        Adicione uma url em urls.py para poder acessar um elemento do json pelo id:
+            
 
