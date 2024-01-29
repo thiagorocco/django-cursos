@@ -22,6 +22,7 @@ class CategoriaView(View):
             data['id'] = qs.id
             data['descricao'] = qs.descricao
             return JsonResponse(data)
+        
         data = list(Categoria.objects.values())
         formated_data = json.dumps(data, ensure_ascii=False)
         return HttpResponse(formated_data, content_type="application/json")
@@ -31,4 +32,19 @@ class CategoriaView(View):
         nova_categoria = Categoria.objects.create(**json_data)
         data = {"id":nova_categoria.id, "descricao":nova_categoria.descricao}
         return JsonResponse(data)
-        
+    
+    def patch(self, request, id):
+        json_data = json.loads(request.body)
+        qs = Categoria.objects.get(id=id)
+        qs.descricao = json_data['descricao']
+        qs.save()
+        data = {}
+        data['id'] = qs.id
+        data['descricao'] = qs.descricao
+        return JsonResponse(data)
+    
+    def delete(self, request, id):
+        qs = Categoria.objects.get(id=id)
+        qs.delete()
+        data = {'mensagem': "Item excluído com sucesso."}
+        return JsonResponse(data)

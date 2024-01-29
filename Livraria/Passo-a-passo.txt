@@ -198,5 +198,8 @@ o código deverá ficar assim:
             return HttpResponse(formated_data, content_type="application/json")
         
         Adicione uma url em urls.py para poder acessar um elemento do json pelo id:
-            
+            path('categorias/<int:id>/',views.CategoriaView.as_view())
+
+22 . Métodos Patch e Delete usando class-based views:
+    Em views.py crie os métodos patch e delete
 
