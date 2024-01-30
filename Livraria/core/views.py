@@ -2,6 +2,9 @@ from django.http import HttpResponse, JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views import View
+
+from rest_framework.views import APIView
+
 from core.models import Categoria
 
 import json
@@ -48,3 +51,7 @@ class CategoriaView(View):
         qs.delete()
         data = {'mensagem': "Item excluído com sucesso."}
         return JsonResponse(data)
+
+class CategoriasList(APIView):
+    def get(self, request):
+        categorias = Categoria.objects.all()

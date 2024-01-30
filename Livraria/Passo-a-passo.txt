@@ -220,5 +220,15 @@ o código deverá ficar assim:
         return JsonResponse(data)
 
 23. Métodos Get e Post usando APIViews do Django Rest Framework
-    No terminal digite poetry add djangorestframework
     
+    No terminal digite poetry add djangorestframework. Isso fará a instalação do djangorestframework.
+    Vá em settings.py e em INSTALLED_APPS adicione 'rest_framework' antes de core.
+    Em views.py adicione a classe CategoriaList logo após CategoriaView:
+
+    from rest_framework.views import APIView
+    .
+    .
+    . 
+    class CategoriasList(APIView):
+        def get(self, request):
+            categorias = Categoria.objects.all()
