@@ -201,5 +201,24 @@ o código deverá ficar assim:
             path('categorias/<int:id>/',views.CategoriaView.as_view())
 
 22 . Métodos Patch e Delete usando class-based views:
-    Em views.py crie os métodos patch e delete
+    Em views.py crie os métodos patch e delete:
 
+    def patch(self, request, id):
+        json_data = json.loads(request.body)
+        qs = Categoria.objects.get(id=id)
+        qs.descricao = json_data['descricao']
+        qs.save()
+        data = {}
+        data['id'] = qs.id
+        data['descricao'] = qs.descricao
+        return JsonResponse(data)
+    
+    def delete(self, request, id):
+        qs = Categoria.objects.get(id=id)
+        qs.delete()
+        data = {'mensagem': "Item excluído com sucesso."}
+        return JsonResponse(data)
+
+23. Métodos Get e Post usando APIViews do Django Rest Framework
+    No terminal digite poetry add djangorestframework
+    
