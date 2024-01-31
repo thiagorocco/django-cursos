@@ -236,11 +236,18 @@ o código deverá ficar assim:
             model = Categoria
             fields = '__all__'
 
-    class CategoriasList(APIView):
-        def get(self, request):
-            categorias = Categoria.objects.all()
-            serializer = CategoriaSerializer(categorias, many=True)
-            return Response(serializer.data)
+class CategoriasList(APIView):
+    def get(self, request):
+        categorias = Categoria.objects.all()
+        serializer = CategoriaSerializer(categorias, many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = CategoriaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     Agora vá até urls.py e adicione a seguinte rota:
-        
+        path('categorias-apiview/',views.CategoriaList.as_view())
