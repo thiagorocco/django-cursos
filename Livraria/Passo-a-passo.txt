@@ -223,12 +223,24 @@ o código deverá ficar assim:
     
     No terminal digite poetry add djangorestframework. Isso fará a instalação do djangorestframework.
     Vá em settings.py e em INSTALLED_APPS adicione 'rest_framework' antes de core.
-    Em views.py adicione a classe CategoriaList logo após CategoriaView:
+    Em views.py adicione as classes CategoriaSerializer e CategoriaList logo após CategoriaView:
 
+    from rest_framework.response import Response
     from rest_framework.views import APIView
+    from rest_framework.serializers import ModelSerializer
     .
     .
     . 
+    class CategoriaSerializer(ModelSerializer):
+        class Meta:
+            model = Categoria
+            fields = '__all__'
+
     class CategoriasList(APIView):
         def get(self, request):
             categorias = Categoria.objects.all()
+            serializer = CategoriaSerializer(categorias, many=True)
+            return Response(serializer.data)
+    
+    Agora vá até urls.py e adicione a seguinte rota:
+        

@@ -3,7 +3,9 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 
+from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.serializers import ModelSerializer
 
 from core.models import Categoria
 
@@ -52,6 +54,13 @@ class CategoriaView(View):
         data = {'mensagem': "Item excluído com sucesso."}
         return JsonResponse(data)
 
+class CategoriaSerializer(ModelSerializer):
+    class Meta:
+        model = Categoria
+        fields = '__all__'
+
 class CategoriasList(APIView):
     def get(self, request):
         categorias = Categoria.objects.all()
+        serializer = CategoriaSerializer(categorias, many=True)
+        return Response(serializer.data)
