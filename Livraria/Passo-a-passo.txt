@@ -254,3 +254,13 @@ class CategoriasList(APIView):
 
 24. Métodos Retrieve Patch e Delete usando APIViews do Django Rest Framework 
     
+    -> Em views.py importe get_object_or_404 e crie a classe CategoriaDetail:
+
+    class CategoriaDetail(APIView):
+        def get(self, request, id):
+            categoria = get_object_or_404(Categoria.objects.all(), id=id)
+            serializer = CategoriaSerializer(categoria)
+            return Response(serializer.data)
+    
+    -> Crie uma rota para essa nova view em urls.py:
+        path('categorias-apiview/<int:id>',views.CategoriaDetail.as_view()
