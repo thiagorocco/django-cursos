@@ -251,3 +251,6 @@ class CategoriasList(APIView):
     
     Agora vá até urls.py e adicione a seguinte rota:
         path('categorias-apiview/',views.CategoriaList.as_view())
+
+24. Métodos Retrieve Patch e Delete usando APIViews do Django Rest Framework 
+    
