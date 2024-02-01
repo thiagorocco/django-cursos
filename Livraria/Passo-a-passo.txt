@@ -263,4 +263,7 @@ class CategoriasList(APIView):
             return Response(serializer.data)
     
     -> Crie uma rota para essa nova view em urls.py:
-        path('categorias-apiview/<int:id>',views.CategoriaDetail.as_view()
+        path('categorias-apiview/<int:id>/',views.CategoriaDetail.as_view()
+
+    Observe que agora ao tentar acessar um elemento com id que não existe ele já trata
+    o erro com o método get_object_or_404    

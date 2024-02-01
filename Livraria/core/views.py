@@ -79,5 +79,13 @@ class CategoriaDetail(APIView):
         categoria = get_object_or_404(Categoria.objects.all(), id=id)
         serializer = CategoriaSerializer(categoria)
         return Response(serializer.data)
-        
+    
+    def put(self, request, id):
+        categoria = get_object_or_404(Categoria.objects.all(), id=id)
+        serializer = CategoriaSerializer(categoria, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)     
         
