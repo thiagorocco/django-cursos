@@ -261,9 +261,36 @@ class CategoriasList(APIView):
             categoria = get_object_or_404(Categoria.objects.all(), id=id)
             serializer = CategoriaSerializer(categoria)
             return Response(serializer.data)
+    def put(self, request, id):
+        categoria = get_object_or_404(Categoria.objects.all(), id=id)
+        serializer = CategoriaSerializer(categoria, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    def delete(self, request, id):    
+        categoria = get_object_or_404(Categoria.objects.all(), id=id)
+        categoria.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
     -> Crie uma rota para essa nova view em urls.py:
         path('categorias-apiview/<int:id>/',views.CategoriaDetail.as_view()
 
     Observe que agora ao tentar acessar um elemento com id que não existe ele já trata
     o erro com o método get_object_or_404    
+
+25. CRUD completo usando GenericViews do Django Rest Framework
+    Existem algumas views genéricas do DRF e vamos usá-las.
+    
+    Primeiro em views.py importamos a view ListCreateAPIView:
+        from rest_framework.generics import ListCreateAPIView
+    
+    Depois criaremos uma classe que herda ListCreateAPIView:
+        class CategoriasListGeneric(ListCreateAPIView):
+        querset = Categoria.objects.all()
+        serializer_class = CategoriaSerializer
+
+    Crie uma url para a nova view em urls.py:
+        
