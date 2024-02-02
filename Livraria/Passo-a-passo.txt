@@ -300,3 +300,14 @@ class CategoriasList(APIView):
     Crie urls para as novas views em urls.py:
         path('categorias-generic/',views.CategoriasListGeneric.as_view()),
         path('categorias-generic/<int:id>/',views.CategoriaDetailGeneric.as_view())
+
+26. CRUD completo usando ModelViewSets do Django Rest Framework
+    Essas views facilitam ainda mais o nosso trabalho.
+
+    Em views importe a model ModelViewSet e crie uma classe que a herde:
+
+    from rest_framework.viewsets import ModelViewSet
+
+    class CategoriaViewSet(ModelViewSet):
+        queryset = Categoria.objects.all()
+        serializer_class = CategoriaSerializer

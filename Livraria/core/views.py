@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.serializers import ModelSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.viewsets import ModelViewSet
 
 from core.models import Categoria
 
@@ -103,3 +104,8 @@ class CategoriaDetailGeneric(RetrieveUpdateDestroyAPIView):
     lookup_field = 'id' #altera o campo procurado de pk(padrão) para o valor que você definir
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
+class CategoriaViewSet(ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+    
