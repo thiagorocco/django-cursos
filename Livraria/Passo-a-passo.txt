@@ -284,13 +284,19 @@ class CategoriasList(APIView):
 25. CRUD completo usando GenericViews do Django Rest Framework
     Existem algumas views genéricas do DRF e vamos usá-las.
     
-    Primeiro em views.py importamos a view ListCreateAPIView:
-        from rest_framework.generics import ListCreateAPIView
+    Primeiro em views.py importamos a view ListCreateAPIView e RetrieveUpdateDestroyAPIView:
+        from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
     
-    Depois criaremos uma classe que herda ListCreateAPIView:
+    Depois criaremos as classes que herdam essas views genéricas:
         class CategoriasListGeneric(ListCreateAPIView):
-        querset = Categoria.objects.all()
-        serializer_class = CategoriaSerializer
-
-    Crie uma url para a nova view em urls.py:
+            queryset = Categoria.objects.all()
+            serializer_class = CategoriaSerializer
         
+        class CategoriaDetailGeneric(RetrieveUpdateDestroyAPIView):
+            lookup_field = 'id' #altera o campo procurado de pk(padrão) para o valor que você definir
+            queryset = Categoria.objects.all()
+            serializer_class = CategoriaSerializer
+
+    Crie urls para as novas views em urls.py:
+        path('categorias-generic/',views.CategoriasListGeneric.as_view()),
+        path('categorias-generic/<int:id>/',views.CategoriaDetailGeneric.as_view())

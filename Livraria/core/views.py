@@ -8,7 +8,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.serializers import ModelSerializer
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from core.models import Categoria
 
@@ -96,5 +96,10 @@ class CategoriaDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class CategoriasListGeneric(ListCreateAPIView):
-    querset = Categoria.objects.all()
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class CategoriaDetailGeneric(RetrieveUpdateDestroyAPIView):
+    lookup_field = 'id' #altera o campo procurado de pk(padrão) para o valor que você definir
+    queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
