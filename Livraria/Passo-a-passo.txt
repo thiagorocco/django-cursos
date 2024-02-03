@@ -302,6 +302,7 @@ class CategoriasList(APIView):
         path('categorias-generic/<int:id>/',views.CategoriaDetailGeneric.as_view())
 
 26. CRUD completo usando ModelViewSets do Django Rest Framework
+    
     Essas views facilitam ainda mais o nosso trabalho.
 
     Em views importe a model ModelViewSet e crie uma classe que a herde:
@@ -311,3 +312,12 @@ class CategoriasList(APIView):
     class CategoriaViewSet(ModelViewSet):
         queryset = Categoria.objects.all()
         serializer_class = CategoriaSerializer
+    
+    Em urls.py import routers do djangorestframework
+        from rest_framework import routers
+
+        E adicione mais um path:
+
+        path('',include(router.urls))# Não se esqueça de importar o include
+
+        * Essa é a forma mais fácil de trabalhar com as operações de CRUD REstFul
