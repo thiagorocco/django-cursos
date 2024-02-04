@@ -414,5 +414,21 @@ class CategoriasList(APIView):
     -> Agora o arquivo views.py já pode ser apagado.
 
     -> Por fim, dentro da pasta views crie um arquivo chamado __init__.py com o seguinte código:
-        
+        from .testesIniciais import teste, teste2
+        from .categoriaClass import CategoriaView
+        from .categoriaApiView import CategoriaDetail, CategoriasList
+        from .categoriaGeneric import CategoriaDetailGeneric, CategoriasListGeneric
+        from .categoria import CategoriaViewSet
 
+28. Configuração das bibliotecas Flake8 no vscode:
+    ->Pare a execução do servidor django se estiver executando.
+    -> No terminal digite: poetry add -D flake8
+    -> Instale a extensão Flake8 da Microsoft no seu vscode
+
+29.  CRUD completo de Editoras usando ModelViewSets do Django Rest Framework
+
+    -> Vá no arquivo serializer e importe o model Editora e insira este código:
+        class EditoraSerializer(ModelSerializer):
+            class Meta:
+                model = Editora
+                fields = '__all__'
