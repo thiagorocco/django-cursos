@@ -402,3 +402,9 @@ class CategoriasList(APIView):
                 data = {'mensagem': "Item excluído com sucesso."}
                 return JsonResponse(data)
 
+    -> Agora em view.py recorte as classes que herdam APIView e cole em um arquivo chamado
+    categoriaApiView.py que deverá estar dentro da pasta views.
+
+    -> Agora em view.py recorte as classes que herdam ListCreateAPIView e RetrieveUpdateDestroyAPIView 
+    e cole em um arquivo chamado categoriaGeneric.py que deverá estar dentro da pasta views.
+
