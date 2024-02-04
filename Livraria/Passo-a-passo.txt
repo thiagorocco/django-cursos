@@ -321,3 +321,38 @@ class CategoriasList(APIView):
         path('',include(router.urls))# Não se esqueça de importar o include
 
         * Essa é a forma mais fácil de trabalhar com as operações de CRUD REstFul
+
+27.  Reestruturação inicial das pastas para as views e serializers
+    
+    -> Dentro do diretório core crie um arquivo chamado serializer.py e dentro dele inclua o código:
+
+        from rest_framework.serializers import ModelSerializer
+        from core.models import Categoria
+
+        class CategoriaSerializer(ModelSerializer):
+            class Meta:
+                model = Categoria
+                fields = '__all__'
+
+    Lembre-se de que esse código acima deve ser apagado do arquivo views.py
+    O objetivo dessa mudança é separar em um arquivo as classes que usam serializer
+
+    -> Agora ainda dentro de core cria uma pasta chamada "views"
+
+    -> Dentro da pasta views crie um arquivo chamado testesIniciais:
+        Pegue esse código de views.py e recorte para testesIniciais.py:
+            from django.http import HttpResponse, JsonResponse
+
+            def teste(request):
+                return HttpResponse('Olá, mundo do Django')
+
+            def teste2(request):
+                data = {
+                    "data":{
+                        "1":"Carrinho",
+                        "2":"Realizado",
+                        "3":"Finalizado"
+                    }
+                }
+                return JsonResponse(data)
+    

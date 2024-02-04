@@ -7,19 +7,13 @@ from django.views import View
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.serializers import ModelSerializer
+
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
 
 from core.models import Categoria
 
 import json
-
-def teste(request):
-    return HttpResponse('Olá, mundo do Django')
-
-def teste2(request):
-    return HttpResponse('Página 2')
 
 
 @method_decorator(csrf_exempt, name="dispatch")
@@ -57,11 +51,6 @@ class CategoriaView(View):
         qs.delete()
         data = {'mensagem': "Item excluído com sucesso."}
         return JsonResponse(data)
-
-class CategoriaSerializer(ModelSerializer):
-    class Meta:
-        model = Categoria
-        fields = '__all__'
 
 class CategoriasList(APIView):
     def get(self, request):
