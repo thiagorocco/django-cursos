@@ -408,8 +408,11 @@ class CategoriasList(APIView):
     -> Agora em view.py recorte as classes que herdam ListCreateAPIView e RetrieveUpdateDestroyAPIView 
     e cole em um arquivo chamado categoriaGeneric.py que deverá estar dentro da pasta views.
 
-    -> Por fim recorte a classe CategoriaViewSet de views.py e cole em um arquivo chamado 
+    -> Recorte a classe CategoriaViewSet de views.py e cole em um arquivo chamado 
         categoria.py que deverá estar dentro de views.
 
     -> Agora o arquivo views.py já pode ser apagado.
+
+    -> Por fim, dentro da pasta views crie um arquivo chamado __init__.py com o seguinte código:
+        
 
