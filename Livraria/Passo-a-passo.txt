@@ -472,4 +472,31 @@ class CategoriasList(APIView):
         path('', include(router.urls))
     ]
 
+30. CRUD completo de Autores usando ModelViewSets do Django Rest Framework
+    -> Repita basicamente o processo de Editoras.     
+
+    -> Vá no arquivo serializer e importe o model Autor e insira este código:
+        class AutorSerializer(ModelSerializer):
+            class Meta:
+                model = Autor
+                fields = '__all__'
     
+    -> Agora na pasta views crie o arquivo autor.py com o seguinte código:
+        from rest_framework.viewsets import ModelViewSet
+        from core.models import Autor
+        from core.serializer import AutorSerializer
+
+
+        class AutorViewSet(ModelViewSet):
+            queryset = Autor.objects.all()
+            serializer_class = AutorSerializer
+
+
+    -> Vá em __ini__.py e insira:
+        from .editora import AutorViewSet
+    
+    -> Agora vá em urls.py e insira e registre a rota:
+
+    router.register(r'autores', views.AutorViewSet)
+
+31. CRUD de Livros usando ModelViewSets do Django Rest Framework
