@@ -500,3 +500,12 @@ class CategoriasList(APIView):
     router.register(r'autores', views.AutorViewSet)
 
 31. CRUD de Livros usando ModelViewSets do Django Rest Framework
+
+   -> Os Livros terão as chaves estrangeiras das outras entidades(Autor/Editora/Categoria)
+   -> Crie um serializer para o livro em serializer.py:
+
+        # Não se esqueça de importar o model Livro  
+        class LivroSerializer(ModelSerializer):
+            class Meta:
+                model = Livro
+                fields = '__all__'
