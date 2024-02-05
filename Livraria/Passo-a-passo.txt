@@ -518,3 +518,33 @@ class CategoriasList(APIView):
         class LivroViewSet(ModelViewSet):
             queryset = Livro.objects.all()
             serializer_class = LivroSerializer
+    
+    -> Em __init__.py dentro de views insira esta linha:
+        from .livro import LivroViewSet
+    
+    -> Em urls.py registre a rota para livros:
+        router.register(r'livros', views.LivroViewSet)
+
+32. Ajustes na representação da listagem de Livros via serializer - parte 1
+    Para que o arquivo json do livro retorne além do id das chaves estrangeiras também os outros campos,
+    criaremos um serializer desse detalhamento.
+    -> Vá em serializer e insira o código:
+        class LivroDetailSerializer(ModelSerializer):
+            class Meta:
+                model = Livro
+                fields = '__all__'
+                # Isso fará retornar o próximo campo da entidade após o ID
+                depth = 1
+    -> Agora vá em livro.py importe LivroDetailSerializer e altere a classe LivroViewSet:
+
+        class LivroViewSet(ModelViewSet):
+            queryset = Livro.objects.all()
+            # serializer_class = LivroSerializer
+
+            def get_serializer_class(self):
+                if self.action == 'list':
+                    return LivroDetailSerializer
+                if self.action == 'retrieve':
+                    return LivroDetailSerializer
+                return LivroSerializer
+    -> Agora faça um get em livros/ e veja o detalhamento das chaves estrangeiras

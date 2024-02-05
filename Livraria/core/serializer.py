@@ -24,3 +24,11 @@ class LivroSerializer(ModelSerializer):
     class Meta:
         model = Livro
         fields = '__all__'
+
+
+class LivroDetailSerializer(ModelSerializer):
+    class Meta:
+        model = Livro
+        fields = '__all__'
+        # Isso fará retornar o próximo campo da entidade após o ID
+        depth = 1
