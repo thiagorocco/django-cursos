@@ -509,3 +509,12 @@ class CategoriasList(APIView):
             class Meta:
                 model = Livro
                 fields = '__all__'
+    -> Crie dentro de views o arquivo livro.py com o seguinte código:
+        from rest_framework.viewsets import ModelViewSet
+        from core.models import Livro
+        from core.serializer import LivroSerializer
+
+
+        class LivroViewSet(ModelViewSet):
+            queryset = Livro.objects.all()
+            serializer_class = LivroSerializer
