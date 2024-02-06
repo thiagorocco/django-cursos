@@ -28,6 +28,7 @@ class LivroSerializer(ModelSerializer):
 
 class LivroDetailSerializer(ModelSerializer):
     categoria = CharField(source="categoria.descricao")
+    editora = EditoraSerializer()
 
     class Meta:
         model = Livro
