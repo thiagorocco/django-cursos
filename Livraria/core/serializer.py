@@ -15,6 +15,12 @@ class EditoraSerializer(ModelSerializer):
         fields = '__all__'
 
 
+class EditoraNestedSerializer(ModelSerializer):
+    class Meta:
+        model = Editora
+        fields = ("nome",)
+
+
 class AutorSerializer(ModelSerializer):
     class Meta:
         model = Autor
@@ -29,7 +35,7 @@ class LivroSerializer(ModelSerializer):
 
 class LivroDetailSerializer(ModelSerializer):
     categoria = CharField(source="categoria.descricao")
-    editora = EditoraSerializer()
+    editora = EditoraNestedSerializer()
     autores = SerializerMethodField()
 
     class Meta:
