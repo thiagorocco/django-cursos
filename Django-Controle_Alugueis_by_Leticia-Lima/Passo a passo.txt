@@ -7,3 +7,6 @@
 
 4. Instale os requirements: pip install -r requirements.txt
 
+5. Crie um novo app: python manage.py startapp base.
+
+6. Registro o app em setting.py localizado em core.
