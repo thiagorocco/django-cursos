@@ -486,4 +486,6 @@ as pastas css, image e js.
 23. Em base.html dentro da tag body antes de qualquer conteúdo insira essa instrução DTL:
             {% include 'navbar.html' %}
 
-24. 
+24. Crie o arquivo message.html em base/templates com o seguinte código:
+
+    
