@@ -49,4 +49,214 @@ as pastas css, image e js.
 
 11. Insira imagens client.jpg e imovel.png na pasta base/static/images
 
-12. 
+12. Criando os modelos:
+    Em myapp/models.py crie os modelos:
+
+    from django.db import models
+    from datetime import datetime
+    # Create your models here.
+
+    ## Cadastro de Clientes     
+    class Client(models.Model):
+        name = models.CharField(max_length=100)
+        email = models.EmailField(max_length=200)
+        phone = models.CharField(max_length=15)
+        
+        def __str__(self):
+            return "{} - {}".format(self.name, self.email)
+        
+        class Meta:
+            verbose_name = 'Cliente'
+            verbose_name_plural = 'Clientes'
+            ordering = ['-id']
+
+
+    ## Opções de Imóveis
+    class TypeImmobile(models.TextChoices):
+        APARTMENT = 'APARTAMENTO','APARTAMENTO'
+        KITNET = 'KITNET','KITNET'
+        HOUSE = 'CASA','CASA'
+
+
+
+    ## Cadastro de Imóveis
+    class Immobile(models.Model):
+        code = models.CharField(max_length=100)
+        type_item = models.CharField(max_length=100, choices=TypeImmobile.choices)
+        address = models.TextField()
+        price = models.DecimalField(max_digits=10,decimal_places=2)
+        is_locate = models.BooleanField(default=False)
+        
+        
+        def __str__(self):
+            return "{} - {}".format(self.code, self.type_item)
+        
+        class Meta:
+            verbose_name = 'Imóvel'
+            verbose_name_plural = 'Imóveis'
+            ordering = ['-id']
+
+
+    ## Cadastrar as Imagens do Imóvel
+    class ImmobileImage(models.Model):
+        image = models.ImageField('Images',upload_to='images')
+        immobile = models.ForeignKey(Immobile, related_name='immobile_images', on_delete=models.CASCADE)
+    
+        def __str__(self):
+            return self.immobile.code
+
+
+
+    ## Registrar Locação
+    class RegisterLocation(models.Model):
+        immobile = models.ForeignKey(Immobile, on_delete=models.CASCADE, related_name='reg_location')
+        client = models.ForeignKey(Client, on_delete=models.CASCADE)
+        dt_start = models.DateTimeField('Inicio')
+        dt_end = models.DateTimeField('Fim')
+        create_at = models.DateField(default=datetime.now, blank=True)
+        
+        def __str__(self):
+            return "{} - {}".format(self.client, self.immobile)
+        
+        class Meta:
+            verbose_name = 'Registrar Locação'
+            verbose_name_plural = 'Registrar Locação'
+            ordering = ['-id']
+
+13. Envie os modelos para o banco de dados com python manage.py makemigrations e migrate
+
+14. Registre-os em admin.py:
+
+    admin.site.register(models.Client) 
+    admin.site.register(models.RegisterLocation)
+
+    class ImmobileImageInlineAdmin(admin.TabularInline):
+    model = models.ImmobileImage
+    extra = 0
+
+
+    class ImmobileAdmin(admin.ModelAdmin):
+        inlines = [ImmobileImageInlineAdmin]
+
+
+    admin.site.register(models.Immobile, ImmobileAdmin)
+
+15. Crie um superusuario: python manage.py createsuperuser e intereja com o banco de dados
+    no django admin.
+
+16. Listando imóveis:
+    Em myapp/views.py crie as seguintes views:
+
+    from django.shortcuts import render, redirect
+
+    from django.db.models import Q
+
+    from .forms import ClientForm, ImmobileForm, RegisterLocationForm
+    from .models import Immobile, ImmobileImage
+
+    # Create your views here.
+    def list_location(request):
+        immobiles = Immobile.objects.filter(is_locate=False)
+        context = {'immobiles': immobiles}
+        return render(request, 'list-location.html', context)
+
+
+    def form_client(request):
+        form = ClientForm()
+        if request.method == 'POST':
+            form = ClientForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('list-location')   
+        return render(request, 'form-client.html', {'form': form})
+
+
+    def form_immobile(request):
+        form = ImmobileForm() 
+        if request.method == 'POST':
+            form = ImmobileForm(request.POST, request.FILES)
+            if form.is_valid():
+                immobile = form.save()
+                files = request.FILES.getlist('immobile') ## pega todas as imagens
+                if files:
+                    for f in files:
+                        ImmobileImage.objects.create( # cria instance para imagens
+                            immobile=immobile, 
+                            image=f)
+                return redirect('list-location')   
+        return render(request, 'form-immobile.html', {'form': form})
+
+
+
+    def form_location(request, id):
+        get_locate = Immobile.objects.get(id=id) ## pega objeto
+
+        form = RegisterLocationForm()  
+        if request.method == 'POST':
+            form = RegisterLocationForm(request.POST)
+            if form.is_valid():
+                location_form = form.save(commit=False)
+                location_form.immobile = get_locate ## salva id do imovel 
+                location_form.save()  
+                
+                ## muda status do imovel para "Alugado"
+                immo = Immobile.objects.get(id=id)
+                immo.is_locate = True ## passa ser True
+                immo.save() 
+
+                return redirect('list-location') # Retorna para lista
+
+        context = {'form': form, 'location': get_locate}
+        return render(request, 'form-location.html', context)
+
+    ## Relatório
+    def reports(request): ## Relatórios   
+        immobile = Immobile.objects.all()
+        
+        get_client = request.GET.get('client') 
+        get_locate = request.GET.get('is_locate')
+        get_type_item = request.GET.get('type_item') 
+
+        get_dt_start = request.GET.get('dt_start')
+        get_dt_end = request.GET.get('dt_end')
+        print(get_dt_start, get_dt_end)
+
+        if get_client: ## Filtra por nome e email do cliente
+            immobile = Immobile.objects.filter(
+                        Q(reg_location__client__name__icontains=get_client) | 
+                        Q(reg_location__client__email__icontains=get_client))
+        
+        if get_dt_start and get_dt_end: ## Por data
+            immobile = Immobile.objects.filter(
+                            reg_location__create_at__range=[get_dt_start,get_dt_end])
+
+        if get_locate:
+            immobile = Immobile.objects.filter(is_locate=get_locate)
+
+        if get_type_item:
+            immobile = Immobile.objects.filter(type_item=get_type_item)
+
+        return render(request, 'reports.html', {'immobiles':immobile})
+    
+    Em base/static/css/style.css insira o seguinte código:
+    .cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    }
+    
+    .card-item {
+        flex: 0 0 25rem;
+        box-sizing: border-box;
+        margin: 1rem 0.25em;
+        border-radius: 10px;
+        border: 1px solid;
+    }
+
+    .card-image {
+        border-radius: 10px;
+    }
+    
+
+
+     
