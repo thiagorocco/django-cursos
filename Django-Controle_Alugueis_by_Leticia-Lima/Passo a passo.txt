@@ -482,3 +482,8 @@ as pastas css, image e js.
     </div>
 
 </nav>
+
+23. Em base.html dentro da tag body antes de qualquer conteúdo insira essa instrução DTL:
+            {% include 'navbar.html' %}
+
+24. 
