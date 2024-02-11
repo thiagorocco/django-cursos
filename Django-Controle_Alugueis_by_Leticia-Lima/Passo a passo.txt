@@ -488,4 +488,13 @@ as pastas css, image e js.
 
 24. Crie o arquivo message.html em base/templates com o seguinte código:
 
-    
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div {% if message.tags %} class="alert {{ message.tags }}"{% endif %} role="alert">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+25. Em base.html dentro da tag body logo após o include da navbar inclua e messagem também:
+        {% include 'message.html' %}
