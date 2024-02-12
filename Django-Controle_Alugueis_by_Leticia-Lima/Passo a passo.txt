@@ -498,3 +498,16 @@ as pastas css, image e js.
 
 25. Em base.html dentro da tag body logo após o include da navbar inclua e messagem também:
         {% include 'message.html' %}
+
+26. Vamos configurar os alertas de erro do django com classes bootstrap:
+    Vá em settings.py e na última linha insira o comando:
+
+        from django.contrib.messages import constants
+
+        MESSAGE_TAGS = {
+            constants.ERROR: 'alert-danger',
+            constants.WARNING: 'alert-warning',
+            constants.DEBUG: 'alert-danger',
+            constants.SUCCESS: 'alert-success',
+            constants.INFO: 'alert-info',
+        }
