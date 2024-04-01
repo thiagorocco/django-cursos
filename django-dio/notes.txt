@@ -16,8 +16,8 @@ Passo a passo
     5. Crie um app. django-admin startapp core;
 
     6. Em views.py crie uma view para renderizar o hello world:
-        def hello(request):
-            return HttpResponse('Hello, World')
+        def hello(request, nome, idade):
+            return HttpResponse('<h1>Hello, {} de {} anos</h1>'.format(nome, idade))
     7. Em urls.py insira a rota dessa view:
-            path('hello/', views.hello),
+        path('hello/<nome>/<int:idade>/', views.hello),
 
