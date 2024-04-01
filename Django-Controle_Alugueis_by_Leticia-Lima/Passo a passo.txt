@@ -629,4 +629,10 @@ as pastas css, image e js.
 
 28. Em base/templates/base.html adicione a logo após a folha de estilo do bootstrap esse tag do 
 fontawesome:
-    
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+29. Atenção ao poderoso recurso do Django para filtrar relatórios, a biblioteca Q:
+    from django.db.models import Q
+
+    Quando você usar a propriedade filter de models, usar a biblioteca Q junto resultará
+    em consultas SQL complexas com pouco código.

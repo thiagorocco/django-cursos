@@ -39,6 +39,7 @@
         <div class="col-auto">
             <form action="{% url 'reports' %}">
                 <label>Status Locação</label>
+                <!-- A tag abaixo fará um submit toda vez que o valor selecionado for alterado -->
                 <select name="is_locate" class="form-select" onchange="this.form.submit()">
                     <option></option> 
                     <option value="True" {% if request.GET.is_locate == 'True' %}selected{% endif %}>LOCADO</option>

@@ -52,8 +52,7 @@ class ImmobileImage(models.Model):
         return self.immobile.code
 
 
-
-## Registrar Locação
+# Registrar Locação
 class RegisterLocation(models.Model):
     immobile = models.ForeignKey(Immobile, on_delete=models.CASCADE, related_name='reg_location')
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
