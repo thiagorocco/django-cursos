@@ -9,6 +9,7 @@ Passo a passo
 4. Abra o arquivo manage.py e execute-o no Pycharm. Após isso vá na opção
 acima onde está escrito manage e clique na seta em "Edit Configurations" e em
 "Parameters" insira "runserver". Agora quando você executar o manage.py ele
-vai rodar o servidor django sem a necessidade de você digital python manage.py runserver
+vai rodar o servidor django sem a necessidade de você digitar python manage.py runserver
 
-5. 
+5. Crie um app. django-admin startapp core;
+
