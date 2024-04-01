@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/<nome>/<int:idade>/', views.hello),
     path('soma/<int:a>/<int:b>/', views.soma),
+    path('mult/<int:a>/<int:b>/', views.mult),
 
 ]

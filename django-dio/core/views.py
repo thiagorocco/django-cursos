@@ -7,3 +7,7 @@ def hello(request, nome, idade):
 def soma(request, a, b):
     c = a + b
     return HttpResponse('<h1> A soma de {} + {} = {}</h1>'.format(a, b, c))
+
+def mult(request, a, b):
+    c = a * b
+    return HttpResponse('<h1> A multiplicação de {} + {} = {}</h1>'.format(a, b, c))
