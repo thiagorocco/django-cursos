@@ -23,5 +23,7 @@ urlpatterns = [
     path('hello/<nome>/<int:idade>/', views.hello),
     path('soma/<int:a>/<int:b>/', views.soma),
     path('mult/<int:a>/<int:b>/', views.mult),
+    path('divi/<int:a>/<int:b>/', views.divi),
+    path('subtr/<int:a>/<int:b>/', views.subtr),
 
 ]
