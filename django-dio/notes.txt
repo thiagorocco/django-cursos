@@ -2,24 +2,33 @@ Passo a passo
 
 # 1 AMBIENTE E HELLO WORLD
 
-    1. Crie uma pasta para o projeto. Ex: django-dio;
+    1.1 Crie uma pasta para o projeto. Ex: django-dio;
 
-    2. Crie dentro dessa pasta um ambiente virtual. python3 -m venv dev_django;
+    1.2 Crie dentro dessa pasta um ambiente virtual. python3 -m venv dev_django;
 
-    3. Inicie o projeto. django-admin startproject hello_django .
+    1.3 Inicie o projeto. django-admin startproject hello_django .
 
-    4. Abra o arquivo manage.py e execute-o no Pycharm. Após isso vá na opção
+    1.4 Abra o arquivo manage.py e execute-o no Pycharm. Após isso vá na opção
     acima onde está escrito manage e clique na seta em "Edit Configurations" e em
     "Parameters" insira "runserver". Agora quando você executar o manage.py ele
     vai rodar o servidor django sem a necessidade de você digitar python manage.py runserver
 
-    5. Crie um app. django-admin startapp core;
+    1.5 Crie um app. django-admin startapp core;
 
-    6. Em views.py crie uma view para renderizar o hello world:
+    1.6 Em views.py crie uma view para renderizar o hello world:
         def hello(request, nome, idade):
             return HttpResponse('<h1>Hello, {} de {} anos</h1>'.format(nome, idade))
-    7. Em urls.py insira a rota dessa view:
+    1.7 Em urls.py insira a rota dessa view:
         path('hello/<nome>/<int:idade>/', views.hello),
 
 # 2 ESTRUTURA BÁSICA DO DJANGO
-    
+    2.1 django-admin
+    2.2 manage
+    2.3 wsgi
+    2.4 settings
+    2.5 urls
+    2.6 views
+    2.7 models
+    2.8 admin
+    2.9 static
+    2.10 templates
