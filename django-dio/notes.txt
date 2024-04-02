@@ -23,6 +23,10 @@ Passo a passo
 
 # 2 ESTRUTURA BÁSICA DO DJANGO
     2.1 django-admin
+        É o utilitário de linha de comando do Django para tarefas administrativas.
+        Conheça todas as tarefas do django-admin com o comando: django-admin --help.
+        O django-admin é um arquivo que fica no pacote do Django e não no pacote do
+        projeto, ele existe antes do projeto ser criado.
     2.2 manage
     2.3 wsgi
     2.4 settings
