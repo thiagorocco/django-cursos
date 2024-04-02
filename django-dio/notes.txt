@@ -21,3 +21,5 @@ Passo a passo
     7. Em urls.py insira a rota dessa view:
         path('hello/<nome>/<int:idade>/', views.hello),
 
+# 2 ESTRUTURA BÁSICA DO DJANGO
+    
