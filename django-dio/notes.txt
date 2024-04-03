@@ -29,8 +29,10 @@ Passo a passo
         projeto, ele existe antes do projeto ser criado.
     2.2 manage
         É um wrapper em volta do django-admin.
-        Ele delega tarefas para o django-admin
-        Responsável por colocar o pacote do projeto no sys.path
+        Ele delega tarefas para o django-admin.
+        Responsável por colocar o pacote do projeto no sys.path.
+        Define a variável de ambiente DJANGO_SETTINGS_MODULE que então aponta para o arquivo settings.py.
+        É gerado automaticamente junto ao projeto para facilitar o uso de comandos do django-admin(comandos administrativos)
     2.3 wsgi
     2.4 settings
     2.5 urls
