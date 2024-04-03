@@ -28,6 +28,9 @@ Passo a passo
         O django-admin é um arquivo que fica no pacote do Django e não no pacote do
         projeto, ele existe antes do projeto ser criado.
     2.2 manage
+        É um wrapper em volta do django-admin.
+        Ele delega tarefas para o django-admin
+        Responsável por colocar o pacote do projeto no sys.path
     2.3 wsgi
     2.4 settings
     2.5 urls
