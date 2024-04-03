@@ -34,6 +34,10 @@ Passo a passo
         Define a variável de ambiente DJANGO_SETTINGS_MODULE que então aponta para o arquivo settings.py.
         É gerado automaticamente junto ao projeto para facilitar o uso de comandos do django-admin(comandos administrativos)
     2.3 wsgi
+        Web Server Gateway Interface(Interface de porta de entrada do servidor web)
+        O Django com o comando startproject inicia uma configuração WSGI padrão para executar sua aplicação web.
+        Com o comando "runserver" é iniciado um servidor web leve. Esse servidor é especificado pela configuração WSGI_APPLICATION.
+        Usado apenas para desenvolvimento, para produção outros servidores são indicados.
     2.4 settings
     2.5 urls
     2.6 views
