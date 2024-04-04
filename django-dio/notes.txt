@@ -46,7 +46,17 @@ Passo a passo
         Responsável por gerenciar as rotas da URLS, onde é possível configurar para onde cada rota será executada.
         É uma forma limpa e elegante para gerenciar URL's
     2.6 views
+        Responsável por processar e retornar uma resposta para o cliente que fez a requisição.
     2.7 models
+        Define o modelo de dados inteiramente em Python.
+        Faz a abstração dos objetos de banco de dados para o Python, transformando todas as tabelas em classes e os acessos são feitos utilizando a linguagem Python onde o Django realiza a transformação para SQL.
+        Ex:
+            class Pessoa(models.Model):
+                name = models.CharField(max_length=200)
+                idade = models.IntegerField()
+        Ex de consulta:
+            pessoa = Pessoa.objects.get(nome='Rafael')
+            select * from pessoa where nome = 'Rafael';
     2.8 admin
     2.9 static
     2.10 templates
