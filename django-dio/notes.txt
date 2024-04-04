@@ -39,6 +39,8 @@ Passo a passo
         Com o comando "runserver" é iniciado um servidor web leve. Esse servidor é especificado pela configuração WSGI_APPLICATION.
         Usado apenas para desenvolvimento, para produção outros servidores são indicados.
     2.4 settings
+        Responsável pelas configurações do Django.
+        É possível criar apps, conexão com banco de dados, templates, time zone, cache, segurança, arquivos estáticos, etc.
     2.5 urls
     2.6 views
     2.7 models
