@@ -58,5 +58,13 @@ Passo a passo
             pessoa = Pessoa.objects.get(nome='Rafael')
             select * from pessoa where nome = 'Rafael';
     2.8 admin
+        Interface administrativa gerada automaticamente pelo Django.
+        Ele lê os metadados que estão nos models e fornece uma interface poderosa e pronta para manipulação de dados.
     2.9 static
+        Responsável por armazenar os arquivos estáticos.
+        CSS, Javascript, imagens
     2.10 templates
+        Responsável por armazenar os arquivos HTML.
+        O diretório "templates" é o diretório padrão para o armazenarmos todo o conteúdo HTML da aplicação.
+
+        
