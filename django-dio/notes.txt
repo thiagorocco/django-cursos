@@ -67,4 +67,28 @@ Passo a passo
         Responsável por armazenar os arquivos HTML.
         O diretório "templates" é o diretório padrão para o armazenarmos todo o conteúdo HTML da aplicação.
 
+
+BANCO DE DADOS E DJANGO ADMIN
+    Desenvolveremos uma AGENDA
+        -> Criar novo projeto;
+        -> Criar novo app;
+        -> Configurar banco de dados;
+        -> Migrar tabelas padrões do Django para o banco;
+        -> Acessando o Django Admin;
+
+    Projeto
+        Vamos criar uma aplicação totalmente do zero que simule uma agenda;
+        A aplicação terá persistência de banco de dados;
+        A aplicação deverá ser multiusuário;
+        Cada usuário deverá visualizar apenas a sua agenda e não a agenda dos demais;
+        A aplicação deverá contar com autenticação
+    Tabelas padrões do Django
+        -> O Django já possui tabelas padrões que são utilizadas principalmente para parte de segurança e autenticação.
+        -> Para criar tabelas as tabelas padrão do Django use o comando migrate.
+        -> Ao criar tabelas padrões do Django é necessário criar um primeiro usuário para acessar o
+        painel Django Administration.
+        -> Para criar um primeiro usuário usamos o comando createsuperuser.
+        -> Elas consistem em auxiliar e agilizar toda parte de autenticação e também de perfis de acesso.
+        -> Entre as tabelas padrões estão as tabelas de Usuário, Grupo e de Perfil.
+        -> Com as tabelas padrões é possível criar usuários, grupos de usuários e definir perfis do qual usuário pode acessar determinado conteúdo.
         
