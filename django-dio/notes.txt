@@ -42,6 +42,9 @@ Passo a passo
         Responsável pelas configurações do Django.
         É possível criar apps, conexão com banco de dados, templates, time zone, cache, segurança, arquivos estáticos, etc.
     2.5 urls
+        É um schema de URL.
+        Responsável por gerenciar as rotas da URLS, onde é possível configurar para onde cada rota será executada.
+        É uma forma limpa e elegante para gerenciar URL's
     2.6 views
     2.7 models
     2.8 admin
