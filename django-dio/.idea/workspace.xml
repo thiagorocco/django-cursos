@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b46c5b4-d96c-4b40-a7fb-9638f27deaff" name="Changes" comment="" />
+    <list default="true" id="8b46c5b4-d96c-4b40-a7fb-9638f27deaff" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/projeto02-agenda/notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,8 +43,8 @@
       <recent name="$PROJECT_DIR$/Hello_Django" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.manage_agenda">
+    <configuration name="manage_agenda" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="django-dio" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -49,11 +52,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Agenda/agenda" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projeto02-agenda" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Agenda/agenda/manage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projeto02-agenda/manage.py" />
       <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -62,8 +65,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="manage_hello_django" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="django-dio" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projeto01-hello-django" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projeto01-hello-django/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.manage_agenda" />
+      <item itemvalue="Python.manage_hello_django" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.manage_agenda" />
+        <item itemvalue="Python.manage_hello_django" />
         <item itemvalue="Python.manage" />
       </list>
     </recent_temporary>

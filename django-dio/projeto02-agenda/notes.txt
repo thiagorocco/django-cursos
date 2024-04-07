@@ -1,0 +1,6 @@
+1. djando-admin startproject agenda
+2. python3 manage.py startapp core
+3. Configure o interpretador(file/settings) e o manage.py runserver
+4. Crie as tabelas no banco de dados com python3 manage.py migrate
+    Será criado conforme o banco de dados padrão, sqlite
+5. 
