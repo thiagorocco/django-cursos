@@ -6,3 +6,5 @@ class Evento(models.Model):
     descricao = models.TextField(blank=True, null=True)
     data_evento = models.DateTimeField()
     data_cricao = models.DateTimeField(auto_now=True)
+    class Meta:
+        db_table = 'evento'

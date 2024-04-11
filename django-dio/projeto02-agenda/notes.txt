@@ -13,6 +13,20 @@
     Observe que ele cria a tabela evento com core na frente => core_evento:
     CREATE TABLE "core_evento" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "titulo" varchar(100) NOT NULL, "descricao" text NULL, "data_evento" datetime NOT NULL, "data_cricao" datetime NOT NULL);
     COMMIT;
-12. É possível criar uma tabela sem o nome do app na frente
+12. É possível criar uma tabela sem o nome do app na frente. Para isso vá até a sua model em models.py
+    e adicione uma classe Meta dentro dela da seguinte forma:
+        class Meta:
+            db_table = 'evento'
+    Após isso apague o arquivo 0001_initial.py e execute novamente os comandos:
+        python manage.py makemigrations core e python manage.py sqlmigrate core 0001.
+        Agora em 0001 existe uma variável chamada options:
+                     options={
+                'db_table': 'evento',
+            },
+        E o retorno de python manage.py sqlmigrate core 0001 será esse:
+            CREATE TABLE "evento" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "titulo" varchar(100) NOT NULL, "descricao" text NULL, "data_evento" datetime NOT NULL, "data_cricao" datetime NOT NULL);
+        COMMIT;
+
+
 
 
