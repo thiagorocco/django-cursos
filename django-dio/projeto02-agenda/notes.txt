@@ -6,4 +6,13 @@
 5.  python3 manage.py createsuperuser;
 6. Em admin crie um usuário e marque a opção "staff status" e deixe desmarcada a opção "Superuser status".
 7. EM Available user permissions marque a opção "Can view user", assim o usuario poderá ver as opções do admin mas não poderá mudá-las.
+8. Crie a model Evento;
+9. Registre seu app em settings.py;
+10. Execute o comando python3 manage.py makemigrations core;
+11. Execute o comando sqlmigrate core 001.
+    Observe que ele cria a tabela evento com core na frente => core_evento:
+    CREATE TABLE "core_evento" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "titulo" varchar(100) NOT NULL, "descricao" text NULL, "data_evento" datetime NOT NULL, "data_cricao" datetime NOT NULL);
+    COMMIT;
+12. É possível criar uma tabela sem o nome do app na frente
+
 
