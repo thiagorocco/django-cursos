@@ -4,3 +4,6 @@
 4. Crie as tabelas no banco de dados com python3 manage.py migrate
     Será criado conforme o banco de dados padrão, sqlite;
 5.  python3 manage.py createsuperuser;
+6. Em admin crie um usuário e marque a opção "staff status" e deixe desmarcada a opção "Superuser status".
+7. EM Available user permissions marque a opção "Can view user", assim o usuario poderá ver as opções do admin mas não poderá mudá-las.
+
