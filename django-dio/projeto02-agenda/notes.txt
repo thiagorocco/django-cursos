@@ -26,6 +26,8 @@
         E o retorno de python manage.py sqlmigrate core 0001 será esse:
             CREATE TABLE "evento" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "titulo" varchar(100) NOT NULL, "descricao" text NULL, "data_evento" datetime NOT NULL, "data_cricao" datetime NOT NULL);
         COMMIT;
+13. Execute o comando: python manage.py migrate core 0001.
+14. Registre o model no django admin
 
 
 
