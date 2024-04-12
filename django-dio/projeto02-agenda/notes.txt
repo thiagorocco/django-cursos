@@ -28,7 +28,44 @@
         COMMIT;
 13. Execute o comando: python manage.py migrate core 0001.
 14. Registre o model no django admin. => admin.site.register(Evento)
-15.
+15. No atributo data_evento adicione no parametro a seguinte declaração: verbose_name='Data do Evento'
+16. Em admin.py crie essa classe:
+    class EventoAdmin(admin.ModelAdmin):
+        list_display = ('titulo', 'data_evento', 'data_criacao')
+        # Ela fará a exibição de forma personalizada
+17. Em models.py adicione esse atributo/campo à classe Evento:
+        usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+        importe a biblioteca: from django.contrib.auth.models import User
+18. Agora execute o comando python manage.py makemigrations core.
+    Aparecerá um aviso informando que já existem registros sem a associação do usuário.
+        Você terá 2 opções:
+            1 define um valor padrão para os registros existentes automaticamente.
+            2 Sair e definir manualmente um valor padrão em models.py
+        Optaremos pela opção 1 e depois 1.
+19. Execute o comando python manage.py sqlmigrate core 0003 e você verá as alterações feitos
+    no modo sql da aplicação:
+        BEGIN;
+        --
+        -- Add field usuario to evento
+        --
+        CREATE TABLE "new__evento" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "usuario_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "titulo" varchar(100) NOT NULL, "descricao" text NULL, "data_evento" datetime NOT NULL, "data_criacao" datetime NOT NULL);
+        INSERT INTO "new__evento" ("id", "titulo", "descricao", "data_evento", "data_criacao", "usuario_id") SELECT "id", "titulo", "descricao", "data_evento", "data_criacao", 1 FROM "evento";
+        DROP TABLE "evento";
+        ALTER TABLE "new__evento" RENAME TO "evento";
+        CREATE INDEX "evento_usuario_id_344a595f" ON "evento" ("usuario_id");
+        COMMIT;
+
+        Perceba que foi criada uma nova tabela(new__evento), adicionado os valores da tabela evento nela. Depois tabela evento é excluída e
+        por fim new__evento é renomeada para evento e criado um indice com base no atributo usuario(usuario_id)
+
+20 . Execute agora python manage.py migrate core ou só migrate. Acesse os registro e confira o usuário relacionado.
+
+
+
+
+
+
+
 
 
 
