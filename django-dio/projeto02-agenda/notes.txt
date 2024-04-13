@@ -60,6 +60,10 @@
 
 20 . Execute agora python manage.py migrate core ou só migrate. Acesse os registro e confira o usuário relacionado.
 
+21. Crie filtros no admin para facilitar suas consultas no painel administrativo do django:
+    Vá em admin.py e na classe EventoAdmin adicione o seguinte atributo:
+        list_filter = ('usuario','data_evento')
+        Agora observe que á direita da nossa página temos filtros para as nossas consultas
 
 
 
