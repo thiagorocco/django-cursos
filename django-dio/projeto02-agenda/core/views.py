@@ -6,4 +6,6 @@ def titulo(request, id):
     return HttpResponse('<h1>Título do evento: {}</h1><h2>{}</h2>'.format(evento.titulo,evento.data_evento))
 
 def lista_eventos(request):
-    return render(request, 'agenda.html')
+    evento = Evento.objects.all()
+    dados = {'eventos':evento}
+    return render(request, 'agenda.html', dados)

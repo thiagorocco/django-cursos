@@ -63,8 +63,14 @@
 21. Crie filtros no admin para facilitar suas consultas no painel administrativo do django:
     Vá em admin.py e na classe EventoAdmin adicione o seguinte atributo:
         list_filter = ('usuario','data_evento')
-        Agora observe que á direita da nossa página temos filtros para as nossas consultas
-22.
+        Agora observe que à direita da nossa página temos filtros para as nossas consultas
+22. Crie o template agenda.html no diretório raiz do projeto dentro da pasta templates.
+23. Crie a view lista_eventos:
+    def lista_eventos(request):
+        return render(request, 'agenda.html')
+24. Registre o caminho da pasta templates em settings.py, em TEMPLATES dentro de DIRS insira:
+    os.path.join(BASE_DIR, 'templates')
+
 
 
 
