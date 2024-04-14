@@ -7,5 +7,5 @@ def titulo(request, id):
 
 def lista_eventos(request):
     evento = Evento.objects.all()
-    dados = {'eventos':evento}
+    dados = {'eventos': evento}
     return render(request, 'agenda.html', dados)
