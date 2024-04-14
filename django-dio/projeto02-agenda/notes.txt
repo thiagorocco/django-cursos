@@ -86,6 +86,12 @@
             <li>{{ evento.titulo }} - {{ evento.get_data_evento }}</li>
         {% endfor %}
     </ul>
+28. Agora crie os arquivos html model-page, model-footer e model-header em templates.
+    model-page terá o include de model-header e model-footer e deixará um bloco para que agenda.html implemente o código.
+
+29. Crie um redirecionamento para a url vazia='' em urls.py:
+    importe RedirectView => from django.views.generic import RedirectView
+    E adicione a url: path('', RedirectView.as_view(url='/agenda/'))
 
 
 
