@@ -70,6 +70,24 @@
         return render(request, 'agenda.html')
 24. Registre o caminho da pasta templates em settings.py, em TEMPLATES dentro de DIRS insira:
     os.path.join(BASE_DIR, 'templates')
+25. Vamos criar uma função na model Evento para retornar a data do evento no formato BR:
+        def get_data_evento(self):
+            return self.data_evento.strftime('%d/%m/%Y %H:%Mh')
+
+26. Altera a view def lista_eventos:
+    def lista_eventos(request):
+        evento = Evento.objects.all()
+        dados = {'eventos': evento}
+        return render(request, 'agenda.html', dados)
+
+27. No template vamos alterá-lo para exibir os dados através do looping:
+    <ul>
+        {% for evento in eventos %}
+            <li>{{ evento.titulo }} - {{ evento.get_data_evento }}</li>
+        {% endfor %}
+    </ul>
+
+
 
 
 
