@@ -132,8 +132,14 @@
         dados = {'eventos': evento}
         return render(request, 'agenda.html', dados)
 
-38. 
-
+38. Vamos criar a função de logout.
+    Em model-header acrescente esse conteúdo:
+    <div align="right">
+        <a href="/logout">Logout</a>
+    </div>
+39. Em urls.py acrescente a rota:
+        path('logout', views.logout_user),
+    
 
 
 
