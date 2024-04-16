@@ -9,4 +9,5 @@ urlpatterns = [
     path('agenda/', views.lista_eventos),
     path('', RedirectView.as_view(url='/agenda/')),
     path('login/', views.login_user),
+    path('login/submit', views.submit_login)
 ]
