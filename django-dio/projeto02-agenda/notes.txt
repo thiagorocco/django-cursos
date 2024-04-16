@@ -112,17 +112,20 @@
 34. Crie o template login.html
 35. Crie a url 'login/submit',views.submit_login em urls.py.
 36. Crie a view submit_login:
-    Importe: from django.contrib.auth import authenticate, login
+    Importe:
+    from django.contrib.auth import authenticate, login
+    from django.contrib import messages
     def submit_login(request):
-    if request.POST:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        usuario = authenticate(username=username, password=password)
-        if usuario is not None:
-            login(request, usuario)
-            return redirect('/')
-    else:
-        redirect('/')
+        if request.POST:
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            usuario = authenticate(username=username, password=password)
+            if usuario is not None:
+                login(request, usuario)
+                return redirect('/')
+            else:
+                messages.error(request, 'Usuário ou senha inválido')
+        return redirect('/')
 
 37. Modifique a view lista_eventos para mostrar os eventos relacionados apenas ao usuário cadastrado:
     @login_required(login_url='/login/')
@@ -139,7 +142,16 @@
     </div>
 39. Em urls.py acrescente a rota:
         path('logout', views.logout_user),
-    
+
+40. Em views acrescente a view logout_user:
+    def logout_user(request):
+        logout(request)
+        return redirect('/')
+41. Agora com o admin logado vá em admin e retire o atributo staff dos usuários que não
+    são admin. Assim eles não terão mais acesso ao admin do Django, mas poderão se
+    autenticar pelo formulário criado.
+
+
 
 
 

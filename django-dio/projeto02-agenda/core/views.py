@@ -1,10 +1,14 @@
 from django.shortcuts import HttpResponse, render, redirect
 from core.models import Evento
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 def login_user(request):
     return render(request, 'login.html')
 
+def logout_user(request):
+    logout(request)
+    return redirect('/')
 def submit_login(request):
     if request.POST:
         username = request.POST.get('username')
@@ -13,8 +17,9 @@ def submit_login(request):
         if usuario is not None:
             login(request, usuario)
             return redirect('/')
-    else:
-        redirect('/')
+        else:
+            messages.error(request, 'Usuário ou senha inválido')
+    return redirect('/')
 @login_required(login_url='/login/')
 def titulo(request, id):
     evento = Evento.objects.get(id=id)
