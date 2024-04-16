@@ -21,6 +21,7 @@ def titulo(request, id):
     return HttpResponse('<h1>Título do evento: {}</h1><h2>{}</h2>'.format(evento.titulo,evento.data_evento))
 @login_required(login_url='/login/')
 def lista_eventos(request):
-    evento = Evento.objects.all()
+    usuario = request.user
+    evento = Evento.objects.filter(usuario=usuario)
     dados = {'eventos': evento}
     return render(request, 'agenda.html', dados)
