@@ -93,6 +93,15 @@
     importe RedirectView => from django.views.generic import RedirectView
     E adicione a url: path('', RedirectView.as_view(url='/agenda/'))
 
+### AUTENTICAÇÃO COM DJANGO ###
+    O Django já possui um pacote de autenticação que é empacotado em django.contrib.auth.
+    Ele cria tabelas de usuários e permissões, o que facilita o controle de autenticações e permissões.
+    Só para ter certeza antes de usar certifique que ele está declara em INSTALLED_APPS
+
+    Função authenticate desse pacote é a responsável por autenticar o usuário.
+
+
+
 
 
 
