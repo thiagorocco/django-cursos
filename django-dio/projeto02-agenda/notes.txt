@@ -99,6 +99,10 @@
     Só para ter certeza antes de usar certifique que ele está declara em INSTALLED_APPS
 
     Função authenticate desse pacote é a responsável por autenticar o usuário.
+    Vamos à prática:
+30. Em views.py declare: from django.contrib.auth.decorators import login_required
+    E na view que você deseja autenticação para ser acessado insira logo acima
+    da view a seguinte declaração: @login_required()
 
 
 
