@@ -104,6 +104,8 @@
     E na view que você deseja autenticação para ser acessado insira logo acima
     da view a seguinte declaração: @login_required()
 
+31. Crie a url path('login/', views.login_user) em urls.py
+
 
 
 
