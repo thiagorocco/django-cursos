@@ -28,4 +28,5 @@ def titulo(request, id):
 def lista_eventos(request):
     usuario = request.user
     evento = Evento.objects.filter(usuario=usuario)
-    return render(request, 'agenda.html', {'eventos': evento,'usuario':usuario})
+    dados = {'eventos': evento,'usuario':usuario}
+    return render(request, 'agenda.html', dados)
