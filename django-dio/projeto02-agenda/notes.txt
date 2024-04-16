@@ -111,6 +111,9 @@
 33. Altere a declaração @login_required() para @login_required(login_url='/login/')
 34. Crie o template login.html
 35. Crie a url 'login/submit',views.submit_login em urls.py.
+36. Crie a view submit_login:
+    Importe: from django.contrib.auth import authenticate, login
+
 
 
 
