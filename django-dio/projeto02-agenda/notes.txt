@@ -104,7 +104,13 @@
     E na view que você deseja autenticação para ser acessado insira logo acima
     da view a seguinte declaração: @login_required()
 
-31. Crie a url path('login/', views.login_user) em urls.py
+31. Crie a url path('login/', views.login_user) em urls.py.
+32. Em views.py crie a view:
+    def login_user(request):
+        return render(request, 'login.html')
+33. Altere a declaração @login_required() para @login_required(login_url='/login/')
+34. Crie o template login.html
+
 
 
 
