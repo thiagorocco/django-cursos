@@ -32,4 +32,6 @@ def lista_eventos(request):
     return render(request, 'agenda.html', dados)
 @login_required()
 def evento(request):
-    return render(request, 'evento.html')
+    usuario = request.user
+    dados = {'usuario': usuario}
+    return render(request, 'evento.html', dados)
