@@ -30,3 +30,6 @@ def lista_eventos(request):
     evento = Evento.objects.filter(usuario=usuario)
     dados = {'eventos': evento,'usuario':usuario}
     return render(request, 'agenda.html', dados)
+@login_required()
+def evento(request):
+    return render(request, 'evento.html')

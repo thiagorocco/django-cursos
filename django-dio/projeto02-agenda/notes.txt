@@ -151,6 +151,15 @@
     são admin. Assim eles não terão mais acesso ao admin do Django, mas poderão se
     autenticar pelo formulário criado.
 
+### INSERÇÃO DE DADOS ###
+
+42. Crie uma rota para a página de inserção de dados em urls.py:
+    path('agenda/evento', views.evento),
+43. Agora crie a view evento:
+    @login_required()
+    def evento(request):
+        return render(request, 'evento.html')
+44. Crie o template:
 
 
 
