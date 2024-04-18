@@ -161,8 +161,10 @@
         usuario = request.user
         dados = {'usuario': usuario}
         return render(request, 'evento.html', dados)
-44. Crie o template evento.html que reaproveita o código dos outros templates.
-45.
+44. Crie o template evento.html que reaproveita o código dos outros templates e implemente
+    o formulario de cadastro de evento.
+45. Crie uma rota para o submit do formulário de cadastro de evento.
+
 
 
 
