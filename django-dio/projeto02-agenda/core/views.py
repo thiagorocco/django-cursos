@@ -30,12 +30,12 @@ def lista_eventos(request):
     evento = Evento.objects.filter(usuario=usuario)
     dados = {'eventos': evento,'usuario':usuario}
     return render(request, 'agenda.html', dados)
-@login_required()
+@login_required(login_url='/login/')
 def evento(request):
     usuario = request.user
     dados = {'usuario': usuario}
     return render(request, 'evento.html', dados)
-@login_required()
+@login_required(login_url='/login/')
 def submit_evento(request):
     if request.POST:
         titulo = request.POST.get('titulo')
@@ -48,4 +48,12 @@ def submit_evento(request):
                               local=local,
                               descricao=descricao,
                               usuario=usuario)
+    return redirect('/')
+@login_required(login_url='/login/')
+def delete_evento(request, id_evento):
+    usuario = request.user
+    evento = Evento.objects.get(id=id_evento)
+    # cada usuário só vai excluir o que for seu
+    if usuario == evento.usuario:
+        evento.delete()
     return redirect('/')
