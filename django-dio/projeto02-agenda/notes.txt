@@ -158,8 +158,11 @@
 43. Agora crie a view evento:
     @login_required()
     def evento(request):
-        return render(request, 'evento.html')
-44. Crie o template:
+        usuario = request.user
+        dados = {'usuario': usuario}
+        return render(request, 'evento.html', dados)
+44. Crie o template evento.html que reaproveita o código dos outros templates.
+45.
 
 
 
