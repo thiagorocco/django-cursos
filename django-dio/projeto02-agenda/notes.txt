@@ -180,8 +180,8 @@
                                   descricao=descricao,
                                   usuario=usuario)
         return redirect('/')
-
-
+### ALTERAÇÃO E EXCLUSÃO DE DADOS ###
+47. Inclua uma rota em urls.py
 
 
 
