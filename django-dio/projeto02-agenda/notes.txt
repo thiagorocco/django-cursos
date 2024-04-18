@@ -164,6 +164,22 @@
 44. Crie o template evento.html que reaproveita o código dos outros templates e implemente
     o formulario de cadastro de evento.
 45. Crie uma rota para o submit do formulário de cadastro de evento.
+    path('agenda/evento/submit', views.submit_evento),
+46. Crie a view submit_evento:
+    @login_required()
+    def submit_evento(request):
+        if request.POST:
+            titulo = request.POST.get('titulo')
+            data_evento = request.POST.get('data_evento')
+            local = request.POST.get('local')
+            descricao = request.POST.get('descricao')
+            usuario = request.user
+            Evento.objects.create(titulo=titulo,
+                                  data_evento=data_evento,
+                                  local=local,
+                                  descricao=descricao,
+                                  usuario=usuario)
+        return redirect('/')
 
 
 
