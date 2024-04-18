@@ -181,7 +181,19 @@
                                   usuario=usuario)
         return redirect('/')
 ### ALTERAÇÃO E EXCLUSÃO DE DADOS ###
-47. Inclua uma rota em urls.py
+47. Inclua uma rota em urls.py:
+        path('agenda/evento/delete/<int:id_evento>/', views.delete_evento),
+48. Crie a view delete_evento:
+    @login_required(login_url='/login/')
+    def delete_evento(request, id_evento):
+        usuario = request.user
+        evento = Evento.objects.get(id=id_evento)
+        # cada usuário só vai excluir o que for seu
+        if usuario == evento.usuario:
+            evento.delete()
+        return redirect('/')
+
+49. Crie links para exclusão e alteração no seu template agenda.html.
 
 
 
