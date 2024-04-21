@@ -9,15 +9,15 @@
     <br>
     <label>Data do Evento</label>
     <br>
-    <input type="datetime-local" name="data_evento" required>
+    <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}" required>
     <br>
     <label>Local</label>
     <br>
-    <input type="text" name="local" size="25">
+    <input type="text" name="local" size="25" value="{{ evento.local }}" required>
     <br>
     <label>Descrição</label>
     <br>
-    <textarea name="descricao" rows="5" cols="21"></textarea>
+    <textarea name="descricao" rows="5" cols="21">{{ evento.descricao }}</textarea>
     <br><br>
     <button type="submit">Salvar</button>
     <a href="/">
