@@ -34,7 +34,7 @@ def lista_eventos(request):
 def evento(request):
     usuario = request.user
     dados = {'usuario': usuario}
-    id_evento = request.POST.get('id')
+    id_evento = request.GET.get('id')
     if id_evento:
         dados['evento'] = Evento.objects.get(id=id_evento)
     return render(request, 'evento.html', dados)

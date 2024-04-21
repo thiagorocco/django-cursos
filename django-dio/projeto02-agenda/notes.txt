@@ -211,6 +211,9 @@
         if id_evento:
             dados['evento'] = Evento.objects.get(id=id_evento)
         return render(request, 'evento.html', dados)
+51. Faça alterações no template evento.html para configurar o value dos elementos para
+    receber os dados do banco de dados.
+
 
 
 
