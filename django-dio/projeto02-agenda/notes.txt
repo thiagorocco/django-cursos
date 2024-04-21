@@ -193,7 +193,26 @@
             evento.delete()
         return redirect('/')
 
-49. Crie links para exclusão e alteração no seu template agenda.html.
+49. Crie links para exclusão e alteração no seu template agenda.html:
+    ( <a href="evento/?id={{ evento.id }}">Editar</a>) |
+    ( <a href="evento/delete/{{ evento.id }}">Excluir</a>)
+
+    Por fim teste o link de delete para ver a nova funcionalidade.
+
+50. Para a alteração do registro não vamos criar uma nova view, vamos
+    aproveitar a view evento e passar o id a ela pelo método get.
+
+    Portanto, vamos apenas alterar a view evento:
+    @login_required(login_url='/login/')
+    def evento(request):
+        usuario = request.user
+        dados = {'usuario': usuario}
+        id_evento = request.POST.get('id')
+        if id_evento:
+            dados['evento'] = Evento.objects.get(id=id_evento)
+        return render(request, 'evento.html', dados)
+
+
 
 
 
