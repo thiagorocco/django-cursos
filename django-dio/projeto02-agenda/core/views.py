@@ -1,3 +1,5 @@
+from distutils.command.install_data import install_data
+
 from django.shortcuts import HttpResponse, render, redirect
 from core.models import Evento
 from django.contrib.auth.decorators import login_required
@@ -46,7 +48,22 @@ def submit_evento(request):
         local = request.POST.get('local')
         descricao = request.POST.get('descricao')
         usuario = request.user
-        Evento.objects.create(titulo=titulo,
+        id_evento = request.POST.get('id_evento')
+        if id_evento:
+            evento = Evento.objects.get(id=id_evento)
+            if evento.usuario == usuario:
+                evento.titulo = titulo
+                evento.data_evento = data_evento
+                evento.local = local
+                evento.descricao = descricao
+                evento.save()
+                #Evento.objects.filter(id=id_evento).update(
+                    # titulo=titulo,
+                    # data_evento=data_evento,
+                    # local=local,
+                    # descricao=descricao)
+        else:
+            Evento.objects.create(titulo=titulo,
                               data_evento=data_evento,
                               local=local,
                               descricao=descricao,

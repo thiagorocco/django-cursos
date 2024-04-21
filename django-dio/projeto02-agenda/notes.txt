@@ -220,7 +220,10 @@
             return self.data_evento.strftime('%Y-%m-%dT%H:%M')
 
 53. Agora faça alterações na view submit_evento para fazer a alteração e não a inclusão dos dados do formulário:
-    
+    Primeiramente em evento.html crie um input hidden que pega o id do banco de dados:
+            <input type="hidden" name="id_evento" value="{{ evento.id }}">
+    Após isso faça as alterações na view submit_evento:
+
 
 
 
