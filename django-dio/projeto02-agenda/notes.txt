@@ -223,7 +223,56 @@
     Primeiramente em evento.html crie um input hidden que pega o id do banco de dados:
             <input type="hidden" name="id_evento" value="{{ evento.id }}">
     Após isso faça as alterações na view submit_evento:
+    @login_required(login_url='/login/')
+    def submit_evento(request):
+        if request.POST:
+            titulo = request.POST.get('titulo')
+            data_evento = request.POST.get('data_evento')
+            local = request.POST.get('local')
+            descricao = request.POST.get('descricao')
+            usuario = request.user
+            id_evento = request.POST.get('id_evento')
+            if id_evento:
+                evento = Evento.objects.get(id=id_evento)
+                if evento.usuario == usuario:
+                    evento.titulo = titulo
+                    evento.data_evento = data_evento
+                    evento.local = local
+                    evento.descricao = descricao
+                    evento.save()
+                    #Evento.objects.filter(id=id_evento).update(
+                        # titulo=titulo,
+                        # data_evento=data_evento,
+                        # local=local,
+                        # descricao=descricao)
+            else:
+                Evento.objects.create(titulo=titulo,
+                                  data_evento=data_evento,
+                                  local=local,
+                                  descricao=descricao,
+                                  usuario=usuario)
+        return redirect('/')
 
+### Filtros, tipos de response e configurações
+
+54. Altere a view lista_eventos:
+    @login_required(login_url='/login/')
+    def lista_eventos(request):
+        usuario = request.user
+        data_atual = datetime.now() - timedelta(hours=1)
+        evento = Evento.objects.filter(usuario=usuario,
+                                       data_evento__gt=data_atual)
+        # data_evento__gt - retorne tudo que tiver data maior que data_evento
+        # data_evento__lt - retorne tudo que tiver data menor que data_evento
+        dados = {'eventos': evento,'usuario':usuario}
+        return render(request, 'agenda.html', dados)
+
+55. Vá em models e crie a function get_evento_atraso:
+    def get_evento_atrasado(self):
+        if self.data_evento < datetime.now():
+            return True
+        else:
+            return False
 
 
 
