@@ -274,6 +274,12 @@
         else:
             return False
 
+56. Vá em settings e altera a language_code para "pt-br",
+    time_zone para "America/Sao_Paulo" e USE_TZ = False.
+
+57. Vá em agenda.html e dentro do li que vem pelo laço for do BD insira uma DIV com a condicional do django:
+    <div style={% if evento.get_evento_atrasado %}"color: red;"{% endif %}>
+
 
 
 
