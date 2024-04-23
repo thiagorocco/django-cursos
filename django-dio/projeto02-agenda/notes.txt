@@ -295,7 +295,8 @@ Tipos de response
     Isso é o ambiente em produção. Em desenvolvimento ainda é recomendado deixar o DEBUG= True
 
 59. Vamos escolher qual mensagem aparecer em caso de erros na nas nossas páginas.
-    Vá até a view 
+    Vá até a view delete_evento e faça essas alterações:
+
 
 
 
