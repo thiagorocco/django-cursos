@@ -277,10 +277,25 @@
 56. Vá em settings e altera a language_code para "pt-br",
     time_zone para "America/Sao_Paulo" e USE_TZ = False.
 
-57. Vá em agenda.html e dentro do li que vem pelo laço for do BD insira uma DIV com a condicional do django:
+57. Vá em agenda.html e dentro do <li>   que vem pelo laço for do BD insira uma DIV com a condicional do django:
     <div style={% if evento.get_evento_atrasado %}"color: red;"{% endif %}>
 
+Tipos de response
 
+58. Ao tentar acessar/alterar/excluir um registro que não existe o django mostrará um erro.
+    Porém para o usuário essa descrição de erro não é importante e nem interessante.
+
+    Vá em settings.py e altere os valore de:
+        DEBUG = False
+        ALLOWED_HOSTS = ['*']
+    Isso mostrará erros como:
+    -> Not Found The requested resource was not found on this server.
+    -> Server Error (500)
+
+    Isso é o ambiente em produção. Em desenvolvimento ainda é recomendado deixar o DEBUG= True
+
+59. Vamos escolher qual mensagem aparecer em caso de erros na nas nossas páginas.
+    Vá até a view 
 
 
 
