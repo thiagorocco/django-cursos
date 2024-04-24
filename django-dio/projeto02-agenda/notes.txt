@@ -297,6 +297,30 @@ Tipos de response
 59. Vamos escolher qual mensagem aparecer em caso de erros na nas nossas páginas.
     Vá até a view delete_evento e faça essas alterações:
 
+    @login_required(login_url='/login/')
+    def delete_evento(request, id_evento):
+        usuario = request.user
+    try:
+        evento = Evento.objects.get(id=id_evento)
+    except Exception:
+        raise Http404()
+    # cada usuário só vai excluir o que for seu
+    if usuario == evento.usuario:
+        evento.delete()
+    else:
+        raise Http404()
+    return redirect('/')
+
+#Usar jsonresponse
+60. Crie uma rota em urls.py:
+        path('agenda/lista', views.json_lista_evento)
+
+61. Crie a view json_lista_evento:
+    @login_required(login_url='/login/')
+    def json_lista_evento(request):
+        usuario = request.user
+        evento = Evento.objects.filter(usuario=usuario).values('id','titulo')
+        return JsonResponse(list(evento), safe=False)
 
 
 
