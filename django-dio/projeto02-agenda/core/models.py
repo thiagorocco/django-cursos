@@ -26,3 +26,11 @@ class Evento(models.Model):
             return True
         else:
             return False
+
+    def get_evento_uma_hora(self):
+        agora = datetime.now()
+        diferenca = self.data_evento-agora
+        if timedelta(minutes=0) <= diferenca <= timedelta(hours=1):
+            return True
+        else:
+            return False
