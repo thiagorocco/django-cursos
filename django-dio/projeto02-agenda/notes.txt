@@ -313,10 +313,9 @@ Tipos de response
 
 #Usar jsonresponse
 60. Crie uma rota em urls.py:
-        path('agenda/lista', views.json_lista_evento)
+        path('agenda/lista/<int:id_usuario>/', views.json_lista_evento),
 
 61. Crie a view json_lista_evento:
-    @login_required(login_url='/login/')
     def json_lista_evento(request):
         usuario = request.user
         evento = Evento.objects.filter(usuario=usuario).values('id','titulo')
