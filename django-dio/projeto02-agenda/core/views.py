@@ -47,7 +47,11 @@ def evento(request):
     dados = {'usuario': usuario}
     id_evento = request.GET.get('id')
     if id_evento:
-        dados['evento'] = Evento.objects.get(id=id_evento)
+        evento = Evento.objects.get(id=id_evento)
+        if evento.usuario == usuario:
+            dados['evento'] = Evento.objects.get(id=id_evento)
+        else:
+            raise Http404()
     return render(request, 'evento.html', dados)
 @login_required(login_url='/login/')
 def submit_evento(request):
