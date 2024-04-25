@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8b46c5b4-d96c-4b40-a7fb-9638f27deaff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto02-agenda/agenda/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projeto02-agenda/agenda/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projeto02-agenda/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projeto02-agenda/core/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto02-agenda/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/projeto02-agenda/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto02-agenda/templates/agenda.html" beforeDir="false" afterPath="$PROJECT_DIR$/projeto02-agenda/templates/agenda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto02-agenda/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projeto02-agenda/core/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

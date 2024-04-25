@@ -27,10 +27,10 @@ def submit_login(request):
         else:
             messages.error(request, 'Usuário ou senha inválido')
     return redirect('/')
-@login_required(login_url='/login/')
-def titulo(request, id):
-    evento = Evento.objects.get(id=id)
-    return HttpResponse('<h1>Título do evento: {}</h1><h2>{}</h2>'.format(evento.titulo,evento.data_evento))
+#@login_required(login_url='/login/')
+#def titulo(request, id):
+    #evento = Evento.objects.get(id=id)
+    #return HttpResponse('<h1>Título do evento: {}</h1><h2>{}</h2>'.format(evento.titulo,evento.data_evento))
 @login_required(login_url='/login/')
 def lista_eventos(request):
     usuario = request.user

@@ -34,3 +34,4 @@ class Evento(models.Model):
             return True
         else:
             return False
+
