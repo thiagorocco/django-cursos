@@ -48,7 +48,7 @@ def lista_historico(request):
     #data_atual = datetime.now() - timedelta(days=1)
     data_atual = datetime.now()
     evento = Evento.objects.filter(usuario=usuario,
-                                   data_evento__lt=data_atual)
+                                   data_evento__lt=data_atual).order_by('-data_evento')
     # data_evento__gt - retorne tudo que tiver data maior que data_evento
     # data_evento__lt - retorne tudo que tiver data menor que data_evento
     dados = {'eventos': evento,'usuario':usuario}
