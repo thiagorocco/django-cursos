@@ -34,13 +34,25 @@ def submit_login(request):
 @login_required(login_url='/login/')
 def lista_eventos(request):
     usuario = request.user
-    data_atual = datetime.now() - timedelta(hours=1)
+    #data_atual = datetime.now() - timedelta(hours=1)
     evento = Evento.objects.filter(usuario=usuario)#,
                                    #data_evento__gt=data_atual)
     # data_evento__gt - retorne tudo que tiver data maior que data_evento
     # data_evento__lt - retorne tudo que tiver data menor que data_evento
     dados = {'eventos': evento,'usuario':usuario}
     return render(request, 'agenda.html', dados)
+
+@login_required(login_url='/login/')
+def lista_historico(request):
+    usuario = request.user
+    #data_atual = datetime.now() - timedelta(days=1)
+    data_atual = datetime.now()
+    evento = Evento.objects.filter(usuario=usuario,
+                                   data_evento__lt=data_atual)
+    # data_evento__gt - retorne tudo que tiver data maior que data_evento
+    # data_evento__lt - retorne tudo que tiver data menor que data_evento
+    dados = {'eventos': evento,'usuario':usuario}
+    return render(request, 'historico.html', dados)
 @login_required(login_url='/login/')
 def evento(request):
     usuario = request.user
