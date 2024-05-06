@@ -5,3 +5,8 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
     pip install djangorestframework
     pip install markdown       # Markdown support for the browsable API.
     pip install django-filter  # Filtering support
+
+2. Criando e configurando o banco de dados
+    Instale o driver do mysql para o django: pip install mysqlclient
+    Se der erro execute esse comando no terminal: sudo apt-get install libmysqlclient-dev e depois execute pip install mysqlclient 
+    
