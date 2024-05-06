@@ -1,0 +1,7 @@
+Passo a passo para criar um ERP com API usando Django, Django Rest Framework e React JS
+
+1. Crie um ambiente virtual e instale os seguintes recursos com o pip install:
+    django==4.2.4
+    pip install djangorestframework
+    pip install markdown       # Markdown support for the browsable API.
+    pip install django-filter  # Filtering support
