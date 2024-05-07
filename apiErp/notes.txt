@@ -15,3 +15,6 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
         'USER': 'root',
         'PASSWORD': 'tr*197346',
         'PORT': 3306, 
+
+    Crie o banco de dados com nome 'curso_sistema_erp' no mysql.
+    Execute o comando python manage.py makemigrations e python manage.py migrate
