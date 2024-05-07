@@ -8,5 +8,10 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
 
 2. Criando e configurando o banco de dados
     Instale o driver do mysql para o django: pip install mysqlclient
-    Se der erro execute esse comando no terminal: sudo apt-get install libmysqlclient-dev e depois execute pip install mysqlclient 
-    
+    Se der erro execute esse comando no terminal: sudo apt-get install libmysqlclient-dev e depois execute pip install mysqlclient
+
+    Em settings.py em DATABASES em ENGINE insira: 'django.db.backends.mysql' e em NAME insira 'onomequevcquiser' vamos colocar
+    'curso_sistema_erp'. Ainda em DATABASES insira os seguintes campos e valores:
+        'USER': 'root',
+        'PASSWORD': 'tr*197346',
+        'PORT': 3306, 
