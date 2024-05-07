@@ -1,0 +1,7 @@
+# gitignore
+
+# Ambiente Virtual 
+venv/
+
+# Arquivo com a senha do banco de dados
+core/password.py
