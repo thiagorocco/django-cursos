@@ -13,7 +13,7 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
     Em settings.py em DATABASES em ENGINE insira: 'django.db.backends.mysql' e em NAME insira 'onomequevcquiser' vamos colocar
     'curso_sistema_erp'. 
     
-    
+
 
     Em DATABASES insira os seguintes campos e valores:
         'USER': 'root',
@@ -26,3 +26,10 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
     Caso você tenha o arquivo db.sqlite criado já pode apagá-lo nesse momento.
 
 3. Instalando e configurando Cors no projeto
+    Cors = Recurso para proteger nossa API. 
+        Possibilita que apenas alguns sites acessem a API ou que alguns sites não acessem a API ou então que todos acessem
+        No terminal execute: pip install django-cors-headers
+
+    Em settings.py adicione 'corsheaders' em INSTALLED_APPS.
+       
+
