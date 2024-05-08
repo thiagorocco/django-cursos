@@ -30,6 +30,6 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
         Possibilita que apenas alguns sites acessem a API ou que alguns sites não acessem a API ou então que todos acessem
         No terminal execute: pip install django-cors-headers
 
-    Em settings.py adicione 'corsheaders' em INSTALLED_APPS.
-       
+    Em settings.py adicione 'corsheaders' em INSTALLED_APPS e 'corsheaders.middleware.CorsMiddleware' em middleware como primeiro elemento do array.
+    Ainda em settings.py adicione a constante CORS_ALLOW_ALL_ORIGINS = True logo abaixo de WSGI_APPLICATION.
 
