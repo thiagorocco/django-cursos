@@ -33,3 +33,13 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
     Em settings.py adicione 'corsheaders' em INSTALLED_APPS e 'corsheaders.middleware.CorsMiddleware' em middleware como primeiro elemento do array.
     Ainda em settings.py adicione a constante CORS_ALLOW_ALL_ORIGINS = True logo abaixo de WSGI_APPLICATION.
 
+4. Trabalhando com autenticação para API JWT
+    Instale o jwt: pip install djangorestframework-simplejwt[crypto]
+
+    Vá em settings.py e insira após a última linha de código esse novo código:
+        REST_FRAMEWORK = {
+            'DEFAULT_AUTHENTICATION_CLASSES': [
+                'rest_framework_simplejwt.authentication.JWTAuthentication',
+            ]
+        }
+
