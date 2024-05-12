@@ -50,4 +50,4 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
 5. Entendendo o conceito de App no Django
     Conjunto de código que tem por várias combinações por exemplo urls, views.
 
-    No terminal: django-admin startapp auth 
+    No terminal: django-admin startapp auth.
