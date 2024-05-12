@@ -51,3 +51,8 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
     Conjunto de código que tem por várias combinações por exemplo urls, views.
 
     No terminal: django-admin startapp auth.
+    Dica: A criação dessa pasta chamada "auth" referente ao app criado poderá se você quiser, ser copiada
+    e usada dentro de outro projeto.
+
+    
+6. Criando models: 
