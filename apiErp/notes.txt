@@ -56,3 +56,6 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
 
     
 6. Criando models: 
+    Antes de prosseguir vamos excluir o app auth e criar um novo app: django-admin startapp accounts
+    Registre accounts em settings.py.
+    

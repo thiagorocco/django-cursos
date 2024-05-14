@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     # Cors Headers
     'corsheaders',
     # Apps
-    'auth',
+    'accounts',
 ]
 
 MIDDLEWARE = [
