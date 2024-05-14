@@ -79,3 +79,10 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
     Agora exclua todas as tabelas do banco de dados 'curso_sistema_erp' e depois disso execute os comandos: 
         python manage.py makemigrations.
         python manage.py migrate.
+
+    Crie a model Group:
+        class Group(models.Model):
+        name = models.CharField(max_length=85)
+    
+    Crie um novo app chamado companies:
+        
