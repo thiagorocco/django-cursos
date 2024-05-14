@@ -11,3 +11,7 @@ class User(AbstractBaseUser):
 
     def __str__(self) -> str:
         return self.email
+
+
+class Group(models.Model):
+    name = models.CharField(max_length=85)
