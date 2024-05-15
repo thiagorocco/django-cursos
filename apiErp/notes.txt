@@ -113,3 +113,18 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
             group = models.ForeignKey(Group, on_delete=models.CASCADE)
 
     Por fim execute: python manage.py makemigrations e python manage.py migrate
+
+7.  Criando Serializers:
+    Dentro da pasta accounts crie um arquivo chamado serializers.py e insira o seguinte código:
+        from rest_framework import serializers
+        from accounts.models import User
+
+
+        class UserSerializer(serializers.ModelSerializer):
+            class Meta:
+                model = User
+                fields = (
+                    'id',
+                    'name',
+                    'email'
+                )
