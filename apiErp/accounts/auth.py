@@ -1,7 +1,7 @@
 from rest_framework.exceptions import AuthenticationFailed, APIException
 from django.contrib.auth.hashers import check_password, make_password
 from accounts.models import User
-from companies.models import Enterprise
+from companies.models import Enterprise, Employee
 
 
 class Authentication:
@@ -10,12 +10,13 @@ class Authentication:
         user_exists = User.objects.filter(email=email).exists()
         if not user_exists:
             raise exception_auth
-        user = User.objects.filter(email=email).first()        
+        user = User.objects.filter(email=email).first()
         if not check_password(password, user.password):
             raise exception_auth
         return user
 
-    def signup(self, name, email, password, type_account='owner', company_id=False) -> None:
+    def signup(self, name, email, password, type_account='owner',
+               company_id=False) -> None:
         if not name or name == '':
             raise APIException('O nome não deve ser null')
         if not email or email == '':
@@ -27,20 +28,22 @@ class Authentication:
         user = User
         if user.objects.filter(email=email).exists():
             raise APIException('Este email já existe na plataforma')
-        
+
         password_hashed = make_password(password)
-        
         create_user = user.objects.create(
             name=name,
             email=email,
-            password=password,
+            password=password_hashed,
             is_owner=0 if type_account == 'employee' else 1
         )
-        
         if type_account == 'owner':
-            Enterprise.objects.create(
+            create_enterprise = Enterprise.objects.create(
                 name='Nome da empresa',
                 user_id=create_user.id
             )
         if type_account == 'employee':
-            pass
+            Employee.objects.create(
+                enterprise_id=company_id or create_enterprise.id,
+                user_id=create_user.id
+            )
+        return create_user
