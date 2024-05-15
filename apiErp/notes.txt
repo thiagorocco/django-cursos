@@ -128,3 +128,11 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
                     'name',
                     'email'
                 )
+
+8. Criando o Módulo Auth
+    Responsável por organizar nossa área de login e registro com os métodos signin e singup. O primeiro verifica se o 
+    email é encontrado e se a senha corresponde à conta encontrada pelo email. O segundo verifica se o email não existe
+    e qual o tipo de conta(funcionario/dona de empresa)
+
+    Crie dentro do app accounts um arquivo chamado auth.py e insira o seguinte código nele:
+        
