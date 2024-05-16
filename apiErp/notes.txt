@@ -193,4 +193,9 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
 9. Criando as Views:
     Em accounts crie o arquivo urls.py e dentro dela insira o código ...
 
+    Em core/urls.py insira o include para pegar esse arquivo acima:
+        ...
+        path('api/auth/', include('accounts.urls')),
+
+
 
