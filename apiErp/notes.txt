@@ -190,3 +190,7 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
                 )
             return create_user
 
+9. Criando as Views:
+    Em accounts crie o arquivo urls.py e dentro dela insira o código ...
+
+
