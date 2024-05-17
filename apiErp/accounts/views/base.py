@@ -1,5 +1,6 @@
 from rest_framework import APIView
-from companies.models import Enterprise
+from rest_framework.exceptions import APIException
+from companies.models import Enterprise, Employee
 
 
 class Base(APIView):
@@ -15,3 +16,6 @@ class Base(APIView):
             return enterprise
     
         # Permissions, Get Employee
+        employee = Employee.objects.filter(user_id=user_id).first()
+        if not employee:
+            raise APIException("Este usuário não é um funcionário")
