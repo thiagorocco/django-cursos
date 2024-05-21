@@ -5,6 +5,7 @@ from accounts.models import User_Groups, Group_Permissions
 
 
 class Base(APIView):
+    # Obter uma empresa baseado em um usuário
     def get_entrerprise_user(self, user_id) -> dict[str, Any] | None:
         enterprise = {
             "is_owner": False,
@@ -12,7 +13,7 @@ class Base(APIView):
         }
         enterprise['is_owner'] = Enterprise.objects.filter(
             user_id=user_id).exists()
-        # Se for dono já retorna a empresa, pois um dono já possui todas as permissões
+        # Se for dono já retorna a empresa, pois já possui todas as permissões
         if enterprise['is_owner']:
             return enterprise    
         # Permissions, Get Employee
@@ -24,7 +25,8 @@ class Base(APIView):
 
         for g in groups:
             group = g.group
-            permissions = Group_Permissions.objects.filter(group_id=group.id).all()
+            permissions = Group_Permissions.objects.filter(
+                group_id=group.id).all()
             for p in permissions:
                 enterprise['permissions'].append({
                     "id": p.permission.id,
