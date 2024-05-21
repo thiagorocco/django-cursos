@@ -1,4 +1,4 @@
-from accounts.view.base import Base
+from accounts.views.base import Base
 from accounts.auth import Authentication
 from accounts.serializers import UserSerializer
 from rest_framework.response import Response
