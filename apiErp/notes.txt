@@ -191,13 +191,13 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
             return create_user
 
 9. Criando as Views:
-    Em accounts crie o arquivo urls.py e dentro dela insira o código ...
+    -> Em accounts crie o arquivo urls.py e dentro dela insira o código ...
 
-    Em core/urls.py insira o include para pegar esse arquivo acima:
+    -> Em core/urls.py insira o include para pegar esse arquivo acima:
         ...
         path('api/auth/', include('accounts.urls')),
     
-    Apague o arquivo view do app accounts e, em seguida cria uma pasta chamada views e dentro dela insira
+    -> Apague o arquivo view do app accounts e, em seguida cria uma pasta chamada views e dentro dela insira
     o arquivo base.py com o seguinte código:
 
         from rest_framework import APIView
@@ -236,7 +236,7 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
                         })
                 return enterprise
 
-    Ainda dentro da pasta views, crie um arquivo chamado signin.py com o seguinte código:
+    -> Ainda dentro da pasta views, crie um arquivo chamado signin.py com o seguinte código:
         from accounts.views.base import Base
         from accounts.auth import Authentication
         from accounts.serializers import UserSerializer
@@ -256,9 +256,16 @@ Passo a passo para criar um ERP com API usando Django, Django Rest Framework e R
                 return Response({
                     "user": serializer.data,
                     "enterprise": enterprise,
-                    "refresh": token.refresh,
-                    "access_token": token.access_token
+                    "refresh": token,
+                    "access": token.access_token
                 })
+    -> Em accounts/urls.py insira o código:
+        from accounts.views.sigin import Sigin
+        from django.urls import path
+
+        urlpatterns = [
+            path('signin', Sigin.as_view())    
+        ]
 
     
 

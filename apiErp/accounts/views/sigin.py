@@ -17,6 +17,6 @@ class Sigin(Base):
         return Response({
             "user": serializer.data,
             "enterprise": enterprise,
-            "refresh": token.refresh,
-            "access_token": token.access_token
+            "refresh": token,
+            "access": token.access_token
         })
